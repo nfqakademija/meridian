@@ -1,12 +1,17 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-<div class="box box--welcome">
-    <h3 class="box__title center">
-        <a href="{{ path("fos_user_security_login") }}" role="button" class="btn btn-success btn-large">Prisijungti!</a>
-    </h3>
-    <a href="{{ path("fos_user_registration_register") }}" role="button" class="btn btn-success btn-large">Susikurti anketa</a>
-</div>
-
+    <div class="container">
+        <div class="main_baner">
+            <img src="{{ asset('images/main_baner.png') }}" alt="" ></h1>
+        </div>
+        <div class="box box--welcome">
+            <h3 class="box__title center">
+                <a href="{{ path("fos_user_security_login") }}" role="button" class="btn btn-success btn-large">Prisijungti!</a>
+            </h3>
+            <a href="{{ path("fos_user_registration_register") }}" role="button" class="btn btn-success btn-large">Susikurti
+                anketa</a>
+        </div>
+    </div>
 
 
 {% endblock %}

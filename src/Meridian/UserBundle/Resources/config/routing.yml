@@ -3,8 +3,6 @@ meridian_user_homepage:
     defaults: { _controller: MeridianUserBundle:Default:index }
 
 
-
-
 welcome_page:
     path:   /welcome
     defaults: { _controller: MeridianUserBundle:Default:index }
