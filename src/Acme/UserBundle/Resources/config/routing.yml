@@ -1,0 +1,14 @@
+acme_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeUserBundle:Default:index }
+
+
+welcome_page:
+    path:   /welcome
+    defaults: { _controller: AcmeUserBundle:Default:index }
+
+
+start_page:
+    path:   /start
+    defaults: { _controller: AcmeUserBundle:Default:start }
+

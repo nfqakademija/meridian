@@ -4,7 +4,11 @@ imports:
 
 framework:
     #esi:             ~
+<<<<<<< HEAD
+    translator:      { fallback: "%locale%" }
+=======
     #translator:      { fallback: "%locale%" }
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -65,8 +69,26 @@ doctrine:
 
 # Swiftmailer Configuration
 swiftmailer:
+<<<<<<< HEAD
+    transport: smtp
+    host:      smtp.gmail.com
+    username:  kurvynas@gmail.com
+    password:  null
+    spool:     { type: memory }
+
+# app/config/config.yml
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Acme\UserBundle\Entity\User
+    profile:
+        form:
+            type: test_user_profile
+
+=======
     transport: "%mailer_transport%"
     host:      "%mailer_host%"
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b

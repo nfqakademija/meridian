@@ -17,7 +17,12 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
+<<<<<<< HEAD
+        "incenteev/composer-parameter-handler": "~2.0",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
+=======
         "incenteev/composer-parameter-handler": "~2.0"
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

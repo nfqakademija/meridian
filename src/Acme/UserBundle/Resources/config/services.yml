@@ -1,0 +1,10 @@
+services:
+#    acme_user.example:
+#        class: Acme\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    acme_user.profile.form.type:
+        class: Acme\UserBundle\Form\Type\ProfileFormType
+        tags:
+            - { name: form.type, alias: test_user_profile }

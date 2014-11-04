@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="container">
+    <h3> Zdarowa {{ app.user }}. Kur šiandie eisim?</h3>
+    <h1>beje profilyje tu atrodai taip
+        {% if pic is null %}
+            <img src="{{ asset('images/babauzis.jpg') }}" alt="" class="img-rounded" height="60" width="60"></h1>
+        {% else %}
+            <img src="{{ asset('uploads/user/profilepics/'~pic) }}" alt="" class="img-rounded" height="60" width="60"></h1>
+        {% endif %}
+    <a href="{{ path("fos_user_profile_edit") }}">pakeisti</a>
+
+</div>
+{% endblock %}
+

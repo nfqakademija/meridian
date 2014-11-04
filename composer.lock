@@ -4,7 +4,11 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
+    "hash": "2178516e9d285d92bdcf1091b63d9f22",
+=======
     "hash": "0f5bf28fac35560dbdb2e597d32df056",
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -614,6 +618,76 @@
             "time": "2014-10-06 13:22:50"
         },
         {
+<<<<<<< HEAD
+            "name": "friendsofsymfony/user-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
+                "reference": "9714a92e968f7e12431ccf5fecb1346f0d5adc65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/9714a92e968f7e12431ccf5fecb1346f0d5adc65",
+                "reference": "9714a92e968f7e12431ccf5fecb1346f0d5adc65",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/security-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "*",
+                "swiftmailer/swiftmailer": ">=4.3, <6.0",
+                "symfony/validator": "~2.3",
+                "symfony/yaml": "~2.3",
+                "willdurand/propel-typehintable-behavior": "dev-master"
+            },
+            "suggest": {
+                "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FOS\\UserBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
+                },
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com"
+                }
+            ],
+            "description": "Symfony FOSUserBundle",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "User management"
+            ],
+            "time": "2014-10-20 09:15:23"
+        },
+        {
+=======
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
             "name": "incenteev/composer-parameter-handler",
             "version": "v2.1.0",
             "target-dir": "Incenteev/ParameterHandler",
@@ -1399,6 +1473,18 @@
         },
         {
             "name": "twig/extensions",
+<<<<<<< HEAD
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig-extensions.git",
+                "reference": "8cf4b9fe04077bd54fc73f4fde83347040c3b8cd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/8cf4b9fe04077bd54fc73f4fde83347040c3b8cd",
+                "reference": "8cf4b9fe04077bd54fc73f4fde83347040c3b8cd",
+=======
             "version": "v1.1.0",
             "source": {
                 "type": "git",
@@ -1409,15 +1495,29 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/c0ab818595338dd5569369bfce2552d02cec5d50",
                 "reference": "c0ab818595338dd5569369bfce2552d02cec5d50",
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "~1.12"
             },
+<<<<<<< HEAD
+            "require-dev": {
+                "symfony/translation": "~2.3"
+            },
+            "suggest": {
+                "symfony/translation": "Allow the time_diff output to be translated"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+=======
             "type": "library",
             "extra": {
                 "branch-alias": {
                     "dev-master": "1.1.x-dev"
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
                 }
             },
             "autoload": {
@@ -1432,6 +1532,13 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
+<<<<<<< HEAD
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Common additional features for Twig that do not directly belong in core",
+            "homepage": "http://twig.sensiolabs.org/doc/extensions/index.html",
+=======
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
@@ -1439,11 +1546,16 @@
             ],
             "description": "Common additional features for Twig that do not directly belong in core",
             "homepage": "https://github.com/fabpot/Twig-extensions",
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
             "keywords": [
                 "i18n",
                 "text"
             ],
+<<<<<<< HEAD
+            "time": "2014-10-30 14:30:03"
+=======
             "time": "2014-07-05 10:01:35"
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
         },
         {
             "name": "twig/twig",
@@ -1555,7 +1667,13 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
+<<<<<<< HEAD
+    "stability-flags": {
+        "friendsofsymfony/user-bundle": 20
+    },
+=======
     "stability-flags": [],
+>>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.3"
