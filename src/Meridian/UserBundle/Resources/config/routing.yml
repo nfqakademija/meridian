@@ -10,3 +10,7 @@ welcome_page:
 start_page:
     path:   /
     defaults: { _controller: MeridianUserBundle:Default:start }
+
+test:
+    path:   /test
+    defaults: { _controller: MeridianUserBundle:Default:test }

@@ -18,4 +18,10 @@ class DefaultController extends Controller
     {
         return $this->render('MeridianUserBundle:Default:start.html.twig');
     }
+
+    public function testAction()
+    {
+        return $this->render('MeridianUserBundle:Default:test.html.twig');
+    }
+
 }

@@ -9,7 +9,11 @@
             <img src="{{ asset('uploads/user/profilepics/'~pic) }}" alt="" class="img-rounded" height="60" width="60"></h1>
         {% endif %}
     <a href="{{ path("fos_user_profile_edit") }}">pakeisti</a>
+    <div class="atsijungti">
+        <h3>Pabodo, gali <a href="{{ path("fos_user_security_logout") }}">atsijungti</a>. Lauksim sugrįžtant.</h3>
 
+
+    </div>
 </div>
 {% endblock %}
 

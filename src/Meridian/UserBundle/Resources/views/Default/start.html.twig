@@ -1,14 +1,26 @@
 {% extends "::base.html.twig" %}
 {% block body %}
     <div class="container">
+
         <div class="main_baner">
             <img src="{{ asset('images/main_baner.png') }}" alt="" ></h1>
         </div>
         <div class="box box--welcome">
-            <h3 class="box__title center">
-                <a href="{{ path("fos_user_security_login") }}" role="button" class="btn btn-success btn-large">Prisijungti!</a>
-            </h3>
-            <a href="{{ path("fos_user_registration_register") }}" role="button" class="btn btn-success btn-large">Susikurti
+            <ul class="nav pull-righterer">
+                <li class="dropdown" id="menuLogin">
+
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" >Login</a>
+                    <div class="dropdown-menu" style="padding:17px;">
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                            <input type="text" name="_username" required="required" placeholder="username"/>
+                            <input type="password" name="_password" required="required" placeholder="password"/>
+                            <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+            <a href="{{ path("fos_user_registration_register") }}" role="button" class="btn btn-success btn-large" style="float: right; margin-right:300px;">Susikurti
                 anketa</a>
         </div>
     </div>
