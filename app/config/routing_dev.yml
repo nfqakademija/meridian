@@ -12,10 +12,3 @@ _configurator:
 
 _main:
     resource: routing.yml
-<<<<<<< HEAD
-
-# AcmeDemoBundle routes (to be removed)
-_acme_demo:
-    resource: "@AcmeDemoBundle/Resources/config/routing.yml"
-=======
->>>>>>> 0eb070ea433ea39ab8e9087d30b87db40875b88b
