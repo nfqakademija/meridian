@@ -1,0 +1,4 @@
+services:
+#    meridian_admin.example:
+#        class: Meridian\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

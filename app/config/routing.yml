@@ -1,6 +1,23 @@
+meridian_admin:
+    resource: "@MeridianAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 meridian_user:
     resource: "@MeridianUserBundle/Resources/config/routing.yml"
     prefix:   /
+
+admin_login:
+    pattern:  /admin/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_check:
+    pattern:  /admin/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    pattern:  /admin/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }
+
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
