@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('MeridianAdminBundle:Default:index.html.twig', array('name' => $name));
     }
+
+    public function adminAction()
+    {
+        return $this->render('MeridianAdminBundle:Default:admin_home.html.twig');
+    }
 }

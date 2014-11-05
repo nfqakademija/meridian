@@ -16,6 +16,3 @@ test:
     defaults: { _controller: MeridianUserBundle:Default:test }
 
 
-admin_home_page:
-    path:   /admin/
-    defaults: { _controller: MeridianUserBundle:Default:admin }

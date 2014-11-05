@@ -24,9 +24,6 @@ class DefaultController extends Controller
         return $this->render('MeridianUserBundle:Default:test.html.twig');
     }
 
-    public function adminAction()
-    {
-        return $this->render('MeridianUserBundle:Default:admin_home.html.twig');
-    }
+
 
 }

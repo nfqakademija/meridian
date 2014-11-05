@@ -1,0 +1,3 @@
+admin_home_page:
+    path:   /admin/
+    defaults: { _controller: MeridianAdminBundle:Default:admin }
