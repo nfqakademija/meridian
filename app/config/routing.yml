@@ -1,3 +1,7 @@
+meridian_core:
+    resource: "@MeridianCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 meridian_admin:
     resource: "@MeridianAdminBundle/Resources/config/routing.yml"
     prefix:   /

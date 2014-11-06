@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Meridian\UserBundle\MeridianUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Meridian\AdminBundle\MeridianAdminBundle(),
+            new Meridian\CoreBundle\MeridianCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
