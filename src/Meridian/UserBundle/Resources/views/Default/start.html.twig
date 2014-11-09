@@ -1,29 +1,171 @@
 {% extends "::base.html.twig" %}
 {% block body %}
-    <div class="container">
-
-        <div class="main_baner">
-            <img src="{{ asset('images/main_baner.png') }}" alt="" ></h1>
-        </div>
-        <div class="box box--welcome">
-            <ul class="nav pull-righterer">
-                <li class="dropdown" id="menuLogin">
-
-                    <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" >Login</a>
-                    <div class="dropdown-menu" style="padding:17px;">
-                        <form action="{{ path("fos_user_security_check") }}" method="post">
-                            <input type="text" name="_username" required="required" placeholder="username"/>
-                            <input type="password" name="_password" required="required" placeholder="password"/>
-                            <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
-                </li>
-            </ul>
-            <a href="{{ path("fos_user_registration_register") }}" role="button" class="btn btn-success btn-large" style="float: right; margin-right:300px;">Susikurti
-                anketa</a>
-        </div>
+    <!-- Menu left -->
+<div class="container-fluid">
+<!-- Page content -->
+<div id="page-content-wrapper">
+<!-- Keep all page content within the page-content inset div! -->
+<div class="page-content inset">
+<div class="row">
+<!-- Header -->
+<div class="col-md-12">
+    <div class="page-header">
+        <h1>Lankyk muziejus
+            <small>Laimėk prizus!</small>
+        </h1>
     </div>
+    <!-- end-Header -->
+    <!-- neregistruoto vartotojo meniu -->
+    <section style="background:#efefe9;">
+        <div class="container">
+            <div class="row">
+                <div class="board">
+                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                    <div class="board-inner">
+                        <ul class="nav nav-tabs" id="myTab">
+                            <div class="liner"></div>
+
+
+                            <li><a href="#profile" data-toggle="tab" title="profile">
+						<span class="round-tabs two">
+                         <i class="glyphicon glyphicon-user"></i>
+						</span>
+                                </a>
+                            </li>
+
+
+                            <li><a href="#settings" data-toggle="tab" title="blah blah">
+                         <span class="round-tabs four">
+                              <i class="glyphicon glyphicon-edit"></i>
+                         </span>
+                                </a></li>
+
+
+                            <li><a href="#doner" data-toggle="tab" title="completed">
+                         <span class="round-tabs five">
+                              <i class="glyphicon glyphicon-log-in"></i>
+                         </span> </a>
+                            </li>
+
+                            <!--
+                            <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+                            <span class="round-tabs three">
+                                 <i class="glyphicon glyphicon-gift"></i>
+                            </span> </a>
+                            </li>
+                            -->
+
+                        </ul>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="profile">
+                            <h3 class="head text-center">Žaidimas prasideda!!!</h3>
+                            <h4 class="text-center"><strong>Užsiregistruok! Dalyvauk! Laimėk!</strong></h4>
+                            <br>
+
+                            <h4 class="text-center">Pradedam!</h4>
+
+                            <form action="" method="post">
+                                <button type="submit">Demo zaidimas</button>
+                            </form>
+
+                            <!--
+                                                         <span class="round-tabs four">
+                                                              <i class="glyphicon glyphicon-edit"></i>
+                                                         </span>
+                            -->
+
+
+                        </div>
+
+                        <div class="tab-pane fade" id="settings">
+                            <h3 class="head text-center">Registracija</h3>
+                            <!-- <p class="narrow text-center">
+                              Užpildyk šią trumpą registracijos formą ir pradėk žaidimą!
+                            </p> -->
+                            <!-- registracijos forma -->
+                            {% render url('fos_user_registration_register') %}
+                            <!--
+                              <p class="text-center">
+                                  <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                              </p>
+                              -->
+
+
+                        </div>
+
+
+                        <div class="tab-pane fade" id="doner">
+
+                            <div class="text-center">
+                                <i class="img-intro icon-checkmark-circle"></i>
+                            </div>
+                            <h3 class="head text-center">Šaunu, <span style="color:#f48260;">♥</span> kad prisijungėte
+                                prie mūsų</h3>
+
+                            <p class="narrow text-center">
+                                O dabar varom į muziejų!
+                            </p>
+
+                            <!-- prisijungimo forma -->
+                            <form action="{{ path("fos_user_security_check") }}" method="post">
+                                <input type="text" name="_username" required="required" placeholder="username"/>
+                                <input type="password" name="_password" required="required" placeholder="password"/>
+                                <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
+                                <button type="submit">Submit</button>
+                                <a href="{{ path('fos_user_resetting_request') }}">Forgot password ?</a>
+                            <br>
+
+                            <form action="admin.html" class="text-center">
+                                <input type="submit" value="Admin" class="btn btn-info dropdown-toggle">
+
+                                <form>
+
+                        </div>
+
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end-neregistruoto vartotojo meniu -->
+</div>
+</div>
+</div>
+</div>
+
+<!-- end Menu left -->
 
 
 {% endblock %}
+
+
+{#<div class="container">#}
+
+{#<div class="main_baner">#}
+{#<img src="{{ asset('images/main_baner.png') }}" alt="" ></h1>#}
+{#</div>#}
+{#<div class="box box--welcome">#}
+{#<ul class="nav pull-righterer">#}
+{#<li class="dropdown" id="menuLogin">#}
+
+{#<a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin" >Login</a>#}
+{#<div class="dropdown-menu" style="padding:17px;">#}
+{#<form action="{{ path("fos_user_security_check") }}" method="post">#}
+{#<input type="text" name="_username" required="required" placeholder="username"/>#}
+{#<input type="password" name="_password" required="required" placeholder="password"/>#}
+{#<input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />#}
+{#<button type="submit">Submit</button>#}
+{#</form>#}
+{#</div>#}
+{#</li>#}
+{#</ul>#}
+{#<a href="{{ path("fos_user_registration_register") }}" role="button" class="btn btn-success btn-large" style="float: right; margin-right:300px;">Susikurti#}
+{#anketa</a>#}
+{#</div>#}
+{#</div>#}

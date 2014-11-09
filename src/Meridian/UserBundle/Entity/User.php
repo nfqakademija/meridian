@@ -47,21 +47,21 @@ class User extends BaseUser
      *
      * @ORM\Column(name="scores", type="integer")
      */
-    protected $scores;
+    protected $scores = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="level", type="integer")
      */
-    protected $level;
+    protected $level = 0;
 
     /**
      * @var string
      *
      * @ORM\Column(name="game_id", type="integer")
      */
-    protected $game_id;
+    protected $game_id = 0;
 
 
     /**
