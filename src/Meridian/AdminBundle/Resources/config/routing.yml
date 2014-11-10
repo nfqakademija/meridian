@@ -1,3 +1,37 @@
 admin_home_page:
     path:   /admin/
     defaults: { _controller: MeridianAdminBundle:Default:admin }
+
+
+admin_new_game:
+    path:   /admin/new_game
+    defaults: { _controller: MeridianAdminBundle:Default:newGame }
+
+
+admin_create_game:
+    path:   /admin/create_game
+    defaults: { _controller: MeridianAdminBundle:Default:createGame }
+    requirements: { _method: post }
+
+admin_show_game:
+    path: /admin/show_game/{id}
+    defaults: { _controller: MeridianAdminBundle:Default:showGame }
+
+admin_show_all_games:
+    path: /admin/show_games
+    defaults: { _controller: MeridianAdminBundle:Default:showAllGames }
+
+
+admin_edit_game:
+    path: /admin/edit_game/{id}
+    defaults: { _controller: MeridianAdminBundle:Default:editGame }
+
+
+admin_update_game:
+    path:   /admin/update/{id}
+    defaults: { _controller: MeridianAdminBundle:Default:updateGame }
+    requirements: { _method: post|put }
+
+admin_delete_game:
+    path:   /admin/delete/{id}
+    defaults: { _controller: MeridianAdminBundle:Default:deleteGame }

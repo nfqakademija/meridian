@@ -1,9 +1,15 @@
-sveikad admine
-<br>
-{{ app.user }}
+{% extends '::admin.html.twig' %}
+{% block title %} Admino puslapis {% endblock %}
 
-<br>
+{% block body %}
 
+    <div class="container">
+        <h2> sveikad admine {{ app.user }}</h2>
+        <ul>
+            <li><a href="{{ path("admin_new_game") }}">Kurti naujus žaidimus</a></li>
+            <li><a href="{{ path("admin_show_all_games") }}">Peržiūrėti visus žaidimus</a></li>
+        </ul>
 
-
-<a href="{{ path("admin_logout") }}">atsijungti</a>
+        <a href="{{ path("admin_logout") }}">atsijungti</a>
+    </div>
+{% endblock %}
