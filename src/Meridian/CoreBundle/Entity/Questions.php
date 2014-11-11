@@ -3,6 +3,7 @@
 namespace Meridian\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Questions
@@ -17,7 +18,7 @@ class Questions
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      **/
 
-    private $answers;
+    protected  $answers;
 
     /**
      * @var integer
@@ -54,6 +55,7 @@ class Questions
      *
      * @ORM\Column(name="answer_id", type="integer")
      */
+
     private $answerId;
 
 

@@ -3,6 +3,7 @@
 namespace Meridian\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Answers
@@ -10,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Meridian\CoreBundle\Entity\AnswersRepository")
  */
+
 class Answers
 {
     /**
@@ -26,6 +28,7 @@ class Answers
      *
      * @ORM\Column(name="answer", type="string", length=255)
      */
+
     private $answer;
 
     /**
@@ -41,28 +44,7 @@ class Answers
      * @ORM\Column(name="answerfoto", type="string", length=255)
      */
     private $answerfoto;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer")
-     */
-    private $userId;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="game_id", type="integer")
-     */
-    private $gameId;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="approved", type="string", length=255)
-     */
-    private $approved;
-
+    
 
     /**
      * Get id
@@ -143,72 +125,4 @@ class Answers
         return $this->answerfoto;
     }
 
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Answers
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set gameId
-     *
-     * @param integer $gameId
-     * @return Answers
-     */
-    public function setGameId($gameId)
-    {
-        $this->gameId = $gameId;
-
-        return $this;
-    }
-
-    /**
-     * Get gameId
-     *
-     * @return integer 
-     */
-    public function getGameId()
-    {
-        return $this->gameId;
-    }
-
-    /**
-     * Set approved
-     *
-     * @param string $approved
-     * @return Answers
-     */
-    public function setApproved($approved)
-    {
-        $this->approved = $approved;
-
-        return $this;
-    }
-
-    /**
-     * Get approved
-     *
-     * @return string 
-     */
-    public function getApproved()
-    {
-        return $this->approved;
-    }
 }
