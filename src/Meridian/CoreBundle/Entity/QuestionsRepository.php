@@ -11,24 +11,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class QuestionsRepository extends EntityRepository
 {
-    public  function getOneQuestionForGame(){
-        return $this->getEntityManager()
-            ->createQuery
-            ('
-SELECT
-  id AS id1,
-  question AS question2,
-  question_foto AS question_foto3,
-  description AS description4,
-  answer_id AS answer_id5,
-  answer_id AS answer_id6
-FROM
-  MeridianCoreBundle:Questions q
-  reikia isirasyti gamess
-  INNER JOIN q.g ON id = game_questions.question_id
-WHERE
-  game_questions.game_id = 1
-AND id=2')
-            ->getResult();
-    }
 }
