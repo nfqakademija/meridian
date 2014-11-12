@@ -1,0 +1,15 @@
+<table border="1" style="width:100%">
+    {% for item in q4 %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.question }}</td>
+        <td>{{ item.description }}</td>
+        <td>{{ item.questionFoto }}</td>
+        <td>{{ item.answerid }}</td>
+        <td></td>
+        <td><a href="{{ path('meridian_core_question_edit',{'id': item.id}) }}">Edit</a></td>
+        <td><a href="{{ path('meridian_core_question_remove',{'id': item.id}) }}">Delete</a></td>
+    </tr>
+        {% endfor %}
+    </table>
+<div><a href="{{ path('meridian_core_form') }}">New Question</a></div>
