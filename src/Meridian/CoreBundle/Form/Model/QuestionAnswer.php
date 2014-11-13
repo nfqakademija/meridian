@@ -8,15 +8,15 @@
 namespace Meridian\CoreBundle\Form\Model;
 
 
-use Meridian\CoreBundle\Entity\Questions;
-use Meridian\CoreBundle\Entity\Answers;
+use Meridian\CoreBundle\Entity\Question;
+use Meridian\CoreBundle\Entity\Answer;
 
 class QuestionAnswer {
 
-    /* @var Questions */
+    /* @var Question */
     public $question;
 
-    /* @var Answers */
+    /* @var Answer */
     public $answer;
 
 } 

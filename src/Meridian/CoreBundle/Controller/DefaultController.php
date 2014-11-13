@@ -2,8 +2,8 @@
 
 namespace Meridian\CoreBundle\Controller;
 
-use Meridian\CoreBundle\Entity\Questions;
-use Meridian\CoreBundle\Entity\Answers;
+use Meridian\CoreBundle\Entity\Question;
+use Meridian\CoreBundle\Entity\Answer;
 use Meridian\CoreBundle\Service\QuestionAnswerService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +18,7 @@ class DefaultController extends Controller
 
     public function getAllQuestionsAction(){
         $questions = $this -> getDoctrine()
-          ->getRepository('MeridianCoreBundle:Questions')
+          ->getRepository('MeridianCoreBundle:Question')
             ->findAll();
         return $this->render('MeridianCoreBundle:Default:questions.html.twig', array('q4' => $questions));
     }
@@ -26,7 +26,7 @@ class DefaultController extends Controller
     public function removeOneQuestionAction($id){
 
         $em = $this -> getDoctrine() -> getManager();
-        $question = $em -> getRepository('MeridianCoreBundle:Questions')
+        $question = $em -> getRepository('MeridianCoreBundle:Question')
             ->find($id);
         $em -> remove($question);
         $em -> flush();
@@ -41,7 +41,7 @@ class DefaultController extends Controller
 
         $form = $this->createFormBuilder($question)
             ->add('question', 'text')
-            ->add('questionFoto', 'text')
+            ->add('image', 'text')
             ->add('description', 'text')
             ->add('Update', 'submit')
             ->getForm();
@@ -65,13 +65,13 @@ class DefaultController extends Controller
     public function editAnswerAction($id , Request $request){
 
         $question = $this -> getDoctrine()
-            ->getRepository('MeridianCoreBundle:Answers')
+            ->getRepository('MeridianCoreBundle:Answer')
             ->find($id);
 
         $form = $this->createFormBuilder($question)
             ->add('answer', 'text')
             ->add('description', 'text')
-            ->add('answerfoto', 'text')
+            ->add('image', 'text')
             ->add('Update', 'submit')
             ->getForm();
         $form->handleRequest($request);
@@ -89,13 +89,13 @@ class DefaultController extends Controller
     }
     public function getMainFormAction(Request $request){
 
-        /** @var QuestionAnswerService $question_answer_services */
-        $question_answer_services = $this->get('meridian_core.questionanswerservice');
-        $form = $question_answer_services->createForm($request);
+        /** @var QuestionAnswerService $questionAnswerServices */
+        $questionAnswerServices = $this->get('meridian_core.questionanswerservice');
+        $form = $questionAnswerServices->createForm($request);
         return $this->render('MeridianCoreBundle:Default:form.html.twig', ['form' => $form->createView()]);
     }
 
-    public function testQueryAction(){
+/*    public function testQueryAction(){
         $repository = $this->getDoctrine()
             ->getRepository('MeridianCoreBundle:Game');
 
@@ -108,5 +108,5 @@ class DefaultController extends Controller
         $q = $query->getResult();
         var_dump($q);
         return $this->render('MeridianCoreBundle:Default:test.html.twig', ['q' => $q]);
-    }
+    }*/
 }

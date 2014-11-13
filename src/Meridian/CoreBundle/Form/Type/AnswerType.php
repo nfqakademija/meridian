@@ -19,12 +19,12 @@ class AnswerType extends AbstractType{
         $builder
             ->add('answer')
             ->add("description")
-            ->add('answerfoto');
+            ->add('image');
     }
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Meridian\CoreBundle\Entity\Answers'
+            'data_class' => 'Meridian\CoreBundle\Entity\Answer'
         ));
     }
     public function getName()

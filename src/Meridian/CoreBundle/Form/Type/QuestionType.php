@@ -19,13 +19,13 @@ class QuestionType extends AbstractType{
         $builder
             ->add('question')
             ->add('description')
-            ->add('questionFoto');
+            ->add('image');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Meridian\CoreBundle\Entity\Questions'
+            'data_class' => 'Meridian\CoreBundle\Entity\Question'
         ));
     }
 

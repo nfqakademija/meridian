@@ -51,13 +51,13 @@ class DemoService
 
     public function getQuestionForGame($questionId)
     {
-        $this->question = $this->em->getRepository('MeridianCoreBundle:Questions')->find($questionId);
+        $this->question = $this->em->getRepository('MeridianCoreBundle:Question')->find($questionId);
         return $this->question;
     }
 
     public function getAnswerForQuestion($questionId)
     {
-        $this->answer = $this->getQuestionForGame($questionId)->getAnswers()->getAnswer();
+        $this->answer = $this->getQuestionForGame($questionId)->getAnswer()->getAnswer();
         return $this->answer;
     }
 
