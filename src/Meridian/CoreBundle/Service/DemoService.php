@@ -20,6 +20,7 @@ class DemoService
     protected $questionId;
     protected $nextQuestionId;
     protected $form;
+    protected $distance;
     protected $answerFromForm = array();
     protected $isOk = false;
     protected $router;
@@ -80,12 +81,24 @@ class DemoService
         $session = $request->getSession();
         $a1 = strtolower($a1);
         $a2 = strtolower($a2);
+        $distance = $this->getDistance($a1, $a2);
         if ($a1 == $a2) {
             $session->getFlashBag()->add('notice', 'Atsakymas teisingas! Nesustok!');
             $this->isOk = true;
             $this->nextQuestionId = $this->questionId + 1;
         } else {
-            $session->getFlashBag()->add('notice', 'Atsakymas neisingas!');
+            if ($distance == 3) {
+                $session->getFlashBag()->add('notice', 'Pasistenk! Artėji prie tikslo!');
+            }
+            if ($distance == 2) {
+                $session->getFlashBag()->add('notice', 'Liko visai nedaug!');
+            }
+            if ($distance == 1) {
+                $session->getFlashBag()->add('notice', 'Karšta!');
+            }
+            if ($distance > 3) {
+                $session->getFlashBag()->add('notice', 'Toli toli!');
+            }
         }
     }
 
@@ -113,5 +126,10 @@ class DemoService
         } else {
             return $this->getResponse('fos_user_registration_register');
         }
+    }
+
+    public function getDistance($str1, $str2)
+    {
+        return levenshtein($str1, $str2);
     }
 }

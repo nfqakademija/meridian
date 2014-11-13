@@ -11,26 +11,15 @@ meridian_core_question_remove:
     path:     /removequestion/{id}
     defaults: { _controller: MeridianCoreBundle:Default:removeOneQuestion }
 meridian_core_question_edit:
-    path:     /questionedit/{id}
+    path:     /editquestion/{id}
     defaults: { _controller: MeridianCoreBundle:Default:editQuestion }
 meridian_core_answer_edit:
-    path:     /answeredit/{id}
+    path:     /editanswer/{id}
     defaults: { _controller: MeridianCoreBundle:Default:editAnswer }
-meridian_core_get_answer:
-    path:     /answer/{id}
-    defaults: { _controller: MeridianCoreBundle:Default:getAnswerForQuestion }
-meridian_core_test:
-    path:     /test
-    defaults: { _controller: MeridianCoreBundle:Default:getMainForm }
-meridian_core_demo:
+meridian_core_demo_default:
     path:     /demo
-    defaults: { _controller: MeridianCoreBundle:Demo:startGame }
-meridian_core_demo_question_default:
-      path:     /demo/question
-      defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
-meridian_core_demo_question:
-    path:     /demo/question/{gameId}/{questionId}
     defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
-meridian_core_test_query:
-    path:     /query
-    defaults: { _controller: MeridianCoreBundle:Default:testQuery }
+meridian_core_demo_question:
+      path:     /demo/{gameId}/{questionId}
+      defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
+
