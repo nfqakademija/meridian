@@ -3,6 +3,7 @@
 namespace Meridian\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,6 +14,17 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Questions
 {
+
+    // ...
+    /**
+     * @ORM\ManyToMany(targetEntity="Meridian\CoreBundle\Entity\Game", mappedBy="questionss")
+     **/
+    private $game;
+
+    public function __construct() {
+        $this->game = new ArrayCollection();
+    }
+
     /**
      * @ORM\OneToOne(targetEntity="Answers")
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
@@ -182,5 +194,38 @@ class Questions
     public function getAnswers()
     {
         return $this->answers;
+    }
+
+    /**
+     * Add game
+     *
+     * @param \Meridian\CoreBundle\Entity\Game $game
+     * @return Questions
+     */
+    public function addGame(\Meridian\CoreBundle\Entity\Game $game)
+    {
+        $this->game[] = $game;
+
+        return $this;
+    }
+
+    /**
+     * Remove game
+     *
+     * @param \Meridian\CoreBundle\Entity\Game $game
+     */
+    public function removeGame(\Meridian\CoreBundle\Entity\Game $game)
+    {
+        $this->game->removeElement($game);
+    }
+
+    /**
+     * Get game
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }

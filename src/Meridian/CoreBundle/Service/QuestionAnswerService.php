@@ -31,25 +31,12 @@ class QuestionAnswerService {
             ->getForm();
         $form = $this->question_answer_form;
         $form_data = $this->question_answer_form->handleRequest($request)->getData();
-        var_dump($form_data->answer);
         if ($form->isValid()) {
-            echo 'ok';
-            //$form_data->answer->flush();
             $em = $this->em;
             $em->persist($form_data->answer);
-            //$em->flush();
-            var_dump($this->em->getConnection()->lastInsertId());
-            var_dump($form_data->answer->getId());
             $form_data->question->setAnswers($form_data->answer);
-            var_dump($form_data->question->getAnswerId());
             $em->persist($form_data->question);
             $em->flush();
-            //$form_data->answer->setAnswer();
-
-           // $this->em->persist($form_data->answer)->flush();
-        }
-        else{
-            echo "darai nesamones:)";
         }
     return $this->question_answer_form;
     }

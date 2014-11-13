@@ -1,7 +1,14 @@
 services:
-    meridian_core.demoservices:
-        class: Meridian\CoreBundle\Service\demoServices
-        arguments: ["@doctrine.orm.entity_manager", "@form.factory"]
-    meridian_core.questionanswerservices:
+    meridian_core.demoservice:
+        class: Meridian\CoreBundle\Service\DemoService
+        arguments: ["@doctrine.orm.entity_manager", "@form.factory", "@router", "@meridian_core.repo.game"]
+
+    meridian_core.questionanswerservice:
         class: Meridian\CoreBundle\Service\QuestionAnswerService
         arguments: ["@doctrine.orm.entity_manager", "@form.factory"]
+
+    meridian_core.repo.game:
+            class:            Doctrine\ORM\EntityRepository
+            factory_service:  doctrine.orm.entity_manager
+            factory_method:   getRepository
+            arguments: ['MeridianCoreBundle:Game']

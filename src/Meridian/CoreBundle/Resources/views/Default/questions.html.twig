@@ -1,15 +1,27 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <h3>Klausimai-atsakymai</h3>
 <table border="1" style="width:100%">
-    {% for item in q4 %}
     <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.question }}</td>
-        <td>{{ item.description }}</td>
-        <td>{{ item.questionFoto }}</td>
-        <td>{{ item.answerid }}</td>
-        <td></td>
-        <td><a href="{{ path('meridian_core_question_edit',{'id': item.id}) }}">Edit</a></td>
-        <td><a href="{{ path('meridian_core_question_remove',{'id': item.id}) }}">Delete</a></td>
+        <th>ID</th>
+        <th>Klausimas</th>
+        <th>Aprašymas</th>
+        <th>Nuotrauka</th>
+        <th>Atsakymo ID</th>
+        <th>Redaguoti</th>
+        <th>Trinti</th>
     </tr>
-        {% endfor %}
-    </table>
+    {% for item in q4 %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.question }}</td>
+            <td>{{ item.description }}</td>
+            <td>{{ item.questionFoto }}</td>
+            <td><a href="{{ path('meridian_core_answer_edit',{'id': item.answerid}) }}">{{ item.answerid }}</a></td>
+            <td><a href="{{ path('meridian_core_question_edit',{'id': item.id}) }}">Edit</a></td>
+            <td><a href="{{ path('meridian_core_question_remove',{'id': item.id}) }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
 <div><a href="{{ path('meridian_core_form') }}">New Question</a></div>
+{% endblock %}

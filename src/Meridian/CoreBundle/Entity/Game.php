@@ -14,11 +14,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Game
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Questions")
-     * @ORM\JoinTable(name="game_questions",
-     *      joinColumns={@ORM\JoinColumn(name="game_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="question_id", referencedColumnName="id")}
-     *      )
+     * @ORM\ManyToMany(targetEntity="Meridian\CoreBundle\Entity\Questions", inversedBy="game")
+     * @ORM\JoinTable(name="game_question")
      **/
    protected $questionss;
 
