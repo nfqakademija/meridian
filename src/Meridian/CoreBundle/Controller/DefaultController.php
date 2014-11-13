@@ -36,7 +36,7 @@ class DefaultController extends Controller
     public function editQuestionAction($id , Request $request){
 
         $question = $this -> getDoctrine()
-            ->getRepository('MeridianCoreBundle:Questions')
+            ->getRepository('MeridianCoreBundle:Question')
             ->find($id);
 
         $form = $this->createFormBuilder($question)

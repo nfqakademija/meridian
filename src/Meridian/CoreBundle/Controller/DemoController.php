@@ -26,7 +26,6 @@ class DemoController extends Controller
         $form = $demoService->createAnswerForm($request);
         if ($demoService->answerIsOk())
         {
-            var_dump($demoService->answerIsOk());
             return $demoService->getResponseForNextQuestion();
         }
         return $this->render('MeridianCoreBundle:Demo:demo.html.twig',

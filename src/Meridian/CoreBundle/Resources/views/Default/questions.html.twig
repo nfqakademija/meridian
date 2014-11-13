@@ -16,8 +16,8 @@
             <td>{{ item.id }}</td>
             <td>{{ item.question }}</td>
             <td>{{ item.description }}</td>
-            <td>{{ item.questionFoto }}</td>
-            <td><a href="{{ path('meridian_core_answer_edit',{'id': item.answerid}) }}">{{ item.answerid }}</a></td>
+            <td>{{ item.image }}</td>
+            <td><a href="{{ path('meridian_core_answer_edit',{'id': item.answerId}) }}">{{ item.answerId }}</a></td>
             <td><a href="{{ path('meridian_core_question_edit',{'id': item.id}) }}">Edit</a></td>
             <td><a href="{{ path('meridian_core_question_remove',{'id': item.id}) }}">Delete</a></td>
         </tr>
