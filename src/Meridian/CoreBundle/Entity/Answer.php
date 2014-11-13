@@ -3,16 +3,14 @@
 namespace Meridian\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Answers
+ * Answer
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Meridian\CoreBundle\Entity\AnswersRepository")
+ * @ORM\Entity(repositoryClass="Meridian\CoreBundle\Entity\AnswerRepository")
  */
-
-class Answers
+class Answer
 {
     /**
      * @var integer
@@ -28,23 +26,24 @@ class Answers
      *
      * @ORM\Column(name="answer", type="string", length=255)
      */
-
     private $answer;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="answerfoto", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
-    private $answerfoto;
-    
+    private $image;
+
+
+
 
     /**
      * Get id
@@ -60,7 +59,7 @@ class Answers
      * Set answer
      *
      * @param string $answer
-     * @return Answers
+     * @return Answer
      */
     public function setAnswer($answer)
     {
@@ -83,7 +82,7 @@ class Answers
      * Set description
      *
      * @param string $description
-     * @return Answers
+     * @return Answer
      */
     public function setDescription($description)
     {
@@ -103,26 +102,25 @@ class Answers
     }
 
     /**
-     * Set answerfoto
+     * Set image
      *
-     * @param string $answerfoto
-     * @return Answers
+     * @param string $image
+     * @return Answer
      */
-    public function setAnswerfoto($answerfoto)
+    public function setImage($image)
     {
-        $this->answerfoto = $answerfoto;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get answerfoto
+     * Get image
      *
      * @return string 
      */
-    public function getAnswerfoto()
+    public function getImage()
     {
-        return $this->answerfoto;
+        return $this->image;
     }
-
 }

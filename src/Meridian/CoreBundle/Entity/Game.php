@@ -14,14 +14,15 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Game
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Meridian\CoreBundle\Entity\Questions", inversedBy="game")
-     * @ORM\JoinTable(name="game_question")
+     * @@ORM\OneToMany(targetEntity="Meridian\CoreBundle\Entity\GameQuestion", mappedBy="gameId")
      **/
-   protected $questionss;
+    private $gameQuestions;
+
+    // ...
 
     public function __construct()
     {
-        $this->questionss = new ArrayCollection();
+        $this->gameQuestions = new ArrayCollection();
     }
 
     /**
@@ -43,9 +44,9 @@ class Game
     /**
      * @var string
      *
-     * @ORM\Column(name="gamefoto", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255)
      */
-    private $gamefoto;
+    private $image;
 
     /**
      * @var string
@@ -60,6 +61,7 @@ class Game
      * @ORM\Column(name="status", type="string", length=20)
      */
     private $status;
+
 
 
     /**
@@ -94,7 +96,30 @@ class Game
     {
         return $this->name;
     }
-    
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Game
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     /**
      * Set description
      *
@@ -139,61 +164,5 @@ class Game
     public function getStatus()
     {
         return $this->status;
-    }
-
-    /**
-     * Set gamefoto
-     *
-     * @param string $gamefoto
-     * @return Game
-     */
-    public function setGamefoto($gamefoto)
-    {
-        $this->gamefoto = $gamefoto;
-
-        return $this;
-    }
-
-    /**
-     * Get gamefoto
-     *
-     * @return string 
-     */
-    public function getGamefoto()
-    {
-        return $this->gamefoto;
-    }
-
-    /**
-     * Add questionss
-     *
-     * @param \Meridian\CoreBundle\Entity\Questions $questionss
-     * @return Game
-     */
-    public function addQuestionss(\Meridian\CoreBundle\Entity\Questions $questionss)
-    {
-        $this->questionss[] = $questionss;
-
-        return $this;
-    }
-
-    /**
-     * Remove questionss
-     *
-     * @param \Meridian\CoreBundle\Entity\Questions $questionss
-     */
-    public function removeQuestionss(\Meridian\CoreBundle\Entity\Questions $questionss)
-    {
-        $this->questionss->removeElement($questionss);
-    }
-
-    /**
-     * Get questionss
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getQuestionss()
-    {
-        return $this->questionss;
     }
 }

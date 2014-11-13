@@ -16,9 +16,10 @@ use Symfony\Component\Security\Core\Util\SecureRandom;
 class User extends BaseUser
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Game")
-     * @ORM\JoinColumn(name="id", referencedColumnName="game_id")
+     * @ORM\ManyToOne(targetEntity="Meridian\CoreBundle\Entity\Game")
+     * @ORM\JoinColumn(name="gameId", referencedColumnName="id")
      **/
+    protected $game;
     
     /**
      * @ORM\Id
@@ -45,23 +46,23 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="scores", type="integer")
+     * @ORM\Column(name="scores", type="integer", options={"default"=0})
      */
-    protected $scores = 0;
+    protected $scores;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="level", type="integer")
+     * @ORM\Column(name="level", type="integer", options={"default"=1})
      */
-    protected $level = 0;
+    protected $level;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="game_id", type="integer")
+     * @ORM\Column(name="gameId", type="integer", options={"default"=2})
      */
-    protected $game_id = 0;
+    protected $gameId;
 
 
     /**
@@ -363,6 +364,29 @@ class User extends BaseUser
      */
     public function getGameId()
     {
-        return $this->game_id;
+        return $this->gameId;
+    }
+
+    /**
+     * Set game
+     *
+     * @param \Meridian\CoreBundle\Entity\Game $game
+     * @return User
+     */
+    public function setGame(\Meridian\CoreBundle\Entity\Game $game = null)
+    {
+        $this->game = $game;
+
+        return $this;
+    }
+
+    /**
+     * Get game
+     *
+     * @return \Meridian\CoreBundle\Entity\Game 
+     */
+    public function getGame()
+    {
+        return $this->game;
     }
 }
