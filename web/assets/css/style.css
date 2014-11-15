@@ -42,4 +42,7 @@ ul li a:hover span {
     transition: 0.2s ease-out;
 }
 
-div
+.nav>li>a.scroll:hover, .nav>li>a.scroll:focus {
+    text-decoration: none;
+    background-color: #ffffff;
+}
