@@ -11,6 +11,18 @@ class DefaultController extends Controller
         $user_id = $this->getUser();
         $pic = $user_id->getProfilePicturePath();
 
+//        $userManager = $this->container->get('fos_user.user_manager');
+//        $users = $userManager->findUsers();
+//
+//        foreach ($users)
+//        exit;
+//        $em =
+//        $ens = $em->getRepository('AcmeBinBundle:Marks')
+//            ->findBy(
+//                array('type'=> 'C12'),
+//                array('id' => 'ASC')
+//            );
+
         return $this->render('MeridianUserBundle:Default:welcome.html.twig', array('pic'=> $pic));
     }
 
