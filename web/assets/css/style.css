@@ -1,0 +1,43 @@
+ul {
+    list-style:none;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+ul li a {
+    position: relative;
+    display:block;
+    padding: 10px 0;
+    text-decoration: none;
+    color:  grey;
+}
+
+ul li a span {
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: red;
+}
+
+ul li a:hover {
+    color: black;
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    -ms-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+}
+
+ul li a:hover span {
+    width: 100%;
+    -webkit-transition: 0.2s ease-out;
+    -moz-transition: 0.2s ease-out;
+    -o-transition: 0.2s ease-out;
+    -ms-transition: 0.2s ease-out;
+    transition: 0.2s ease-out;
+}

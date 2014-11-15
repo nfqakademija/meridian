@@ -16,6 +16,10 @@ class DefaultController extends Controller
 
     public function startAction()
     {
+        $user = $this->get('security.context')->getToken()->getUser();
+        if ($user != 'anon.'){
+            return $this->redirect($this->generateUrl("welcome_page"));
+        }
         return $this->render('MeridianUserBundle:Default:start.html.twig');
     }
 
