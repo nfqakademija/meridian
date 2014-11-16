@@ -14,13 +14,20 @@
 
             </div>
             <div>
-                <div style="float: left;">
-                    <img src="{{ asset('images/babauzis.jpg') }}" alt="" height="40" width="40" style="display: block;">
-                    <span>123</span></div><div style="float: left;">
-                    <img src="{{ asset('images/babauzis.jpg') }}" alt="" height="40" width="40" style="display: block;">
-                    <span>123</span></div>
+                {#dar biski reikia patobulint#}
+                {% for score in scores %}
+                    <div style="float: left; color: #C90000; margin-right: 10px;" align="center">
+                        {{ score }}
+                        {% if score.getProfilePicturePath is null%}
+                            <img src="{{ asset('images/babauzis.jpg') }}" alt="" height="40" width="40" style="display: block;">
+                            <span>{{ score.getScores }}</span>
+                        {% else %}
+                            <img src="{{ asset('uploads/user/profilepics/'~score.getProfilePicturePath) }}" alt="" height="40" width="40" style="display: block;">
+                            <span>{{ score.getScores }}</span>
+                        {% endif %}
+                     </div>
+                {% endfor %}
             </div>
-
             <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;

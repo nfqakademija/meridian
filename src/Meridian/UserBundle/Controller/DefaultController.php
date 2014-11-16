@@ -10,20 +10,10 @@ class DefaultController extends Controller
     {
         $user_id = $this->getUser();
         $pic = $user_id->getProfilePicturePath();
-
-//        $userManager = $this->container->get('fos_user.user_manager');
-//        $users = $userManager->findUsers();
-//
-//        foreach ($users)
-//        exit;
-//        $em =
-//        $ens = $em->getRepository('AcmeBinBundle:Marks')
-//            ->findBy(
-//                array('type'=> 'C12'),
-//                array('id' => 'ASC')
-//            );
-
-        return $this->render('MeridianUserBundle:Default:welcome.html.twig', array('pic'=> $pic));
+        $dd = $this->getDoctrine()->getManager()->createQuery('SELECT p FROM MeridianUserBundle:User p ORDER BY p.scores ASC')->getResult();
+        $user_position = array_search($user_id, $dd);
+        $new = [$dd[$user_position-2],$dd[$user_position-1],$dd[$user_position], $dd[$user_position+1], $dd[$user_position+2] ];
+        return $this->render('MeridianUserBundle:Default:welcome.html.twig', array('pic'=> $pic, 'scores' => $new));
     }
 
     public function startAction()
