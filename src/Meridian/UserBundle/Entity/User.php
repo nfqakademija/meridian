@@ -46,24 +46,31 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="scores", type="integer", options={"default"=0})
+     * @ORM\Column(name="scores", type="integer", nullable=true , options={"default"=0})
      */
     protected $scores;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="level", type="integer", options={"default"=1})
+     * @ORM\Column(name="level", type="integer", nullable=true, options={"default"=1})
      */
     protected $level;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="gameId", type="integer", options={"default"=2})
+     * @ORM\Column(name="gameId", type="integer", nullable=true, options={"default"=2})
      */
     protected $gameId;
 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="positionInGame", type="integer", nullable=true, options={"default"=1})
+     */
+    protected $positionInGame;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -345,14 +352,14 @@ class User extends BaseUser
     }
 
     /**
-     * Set game_id
+     * Set gameId
      *
      * @param integer $gameId
      * @return User
      */
     public function setGameId($gameId)
     {
-        $this->game_id = $gameId;
+        $this->gameId = $gameId;
 
         return $this;
     }
@@ -391,4 +398,27 @@ class User extends BaseUser
     }
 
 
+
+    /**
+     * Set positionInGame
+     *
+     * @param integer $positionInGame
+     * @return User
+     */
+    public function setPositionInGame($positionInGame)
+    {
+        $this->positionInGame = $positionInGame;
+
+        return $this;
+    }
+
+    /**
+     * Get positionInGame
+     *
+     * @return integer 
+     */
+    public function getPositionInGame()
+    {
+        return $this->positionInGame;
+    }
 }

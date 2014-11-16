@@ -7,8 +7,13 @@ services:
         class: Meridian\CoreBundle\Service\QuestionAnswerService
         arguments: ["@doctrine.orm.entity_manager", "@form.factory"]
 
+    meridian_core.game_service:
+            class: Meridian\CoreBundle\Service\GameService
+            arguments: ["@doctrine.orm.entity_manager", "@form.factory"]
+
     meridian_core.repo.game:
             class:            Doctrine\ORM\EntityRepository
             factory_service:  doctrine.orm.entity_manager
             factory_method:   getRepository
             arguments: ['MeridianCoreBundle:Game']
+

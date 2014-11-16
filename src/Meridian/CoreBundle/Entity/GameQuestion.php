@@ -16,13 +16,13 @@ class GameQuestion
      * @ORM\ManyToOne(targetEntity="Meridian\CoreBundle\Entity\Game", inversedBy="gameQuestions")
      * @ORM\JoinColumn(name="gameId", referencedColumnName="id")
      **/
-    private $game;
+    protected $game;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Meridian\CoreBundle\Entity\Question", inversedBy="questionGames")
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="questionGames")
      * @ORM\JoinColumn(name="questionId", referencedColumnName="id")
      **/
-    private $question;
+    protected $question;
 
     /**
      * @var integer

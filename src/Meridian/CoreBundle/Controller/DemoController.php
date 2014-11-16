@@ -3,9 +3,7 @@
 namespace Meridian\CoreBundle\Controller;
 
 use Meridian\CoreBundle\Service\DemoService;
-use Meridian\CoreBundle\Service\demoServices;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Meridian\CoreBundle\Entity\Game;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form;

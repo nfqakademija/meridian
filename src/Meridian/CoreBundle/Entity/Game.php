@@ -14,11 +14,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Game
 {
     /**
-     * @@ORM\OneToMany(targetEntity="Meridian\CoreBundle\Entity\GameQuestion", mappedBy="gameId")
+     * @ORM\OneToMany(targetEntity="GameQuestion", mappedBy="game")
      **/
-    private $gameQuestions;
-
-    // ...
+    protected $gameQuestions;
 
     public function __construct()
     {
@@ -164,5 +162,38 @@ class Game
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * Add gameQuestions
+     *
+     * @param \Meridian\CoreBundle\Entity\GameQuestion $gameQuestions
+     * @return Game
+     */
+    public function addGameQuestion(\Meridian\CoreBundle\Entity\GameQuestion $gameQuestions)
+    {
+        $this->gameQuestions[] = $gameQuestions;
+
+        return $this;
+    }
+
+    /**
+     * Remove gameQuestions
+     *
+     * @param \Meridian\CoreBundle\Entity\GameQuestion $gameQuestions
+     */
+    public function removeGameQuestion(\Meridian\CoreBundle\Entity\GameQuestion $gameQuestions)
+    {
+        $this->gameQuestions->removeElement($gameQuestions);
+    }
+
+    /**
+     * Get gameQuestions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGameQuestions()
+    {
+        return $this->gameQuestions;
     }
 }

@@ -22,10 +22,10 @@ class Question
     private $answer;
 
     /**
-     * @@ORM\OneToMany(targetEntity="Meridian\CoreBundle\Entity\GameQuestion", mappedBy="questionId")
+     * @ORM\OneToMany(targetEntity="GameQuestion", mappedBy="question")
      **/
-    private $questionGames;
-    // ...
+
+    protected $questionGames;
 
     public function __construct() {
         $this->questionGames = new ArrayCollection();
@@ -191,5 +191,38 @@ class Question
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    /**
+     * Add questionGames
+     *
+     * @param \Meridian\CoreBundle\Entity\GameQuestion $questionGames
+     * @return Question
+     */
+    public function addQuestionGame(\Meridian\CoreBundle\Entity\GameQuestion $questionGames)
+    {
+        $this->questionGames[] = $questionGames;
+
+        return $this;
+    }
+
+    /**
+     * Remove questionGames
+     *
+     * @param \Meridian\CoreBundle\Entity\GameQuestion $questionGames
+     */
+    public function removeQuestionGame(\Meridian\CoreBundle\Entity\GameQuestion $questionGames)
+    {
+        $this->questionGames->removeElement($questionGames);
+    }
+
+    /**
+     * Get questionGames
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getQuestionGames()
+    {
+        return $this->questionGames;
     }
 }
