@@ -117,4 +117,10 @@ class DefaultController extends Controller
             ['question' => $game->getQuestionForGame(), 'game' => $game->getGameName(),'answerForm' => $form->createView(),'level'=>$game->getUserLevel(),'scores'=>$game->getUserScores()]);
 
     }
+
+
+    public function newsAction()
+    {
+        return $this->render('MeridianCoreBundle:Proxy:news.html.twig');
+    }
 }

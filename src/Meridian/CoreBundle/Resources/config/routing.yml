@@ -27,3 +27,7 @@ meridian_core_game:
       path:     /game
       defaults: { _controller: MeridianCoreBundle:Default:startGame }
 
+
+naujienos:
+    path:   /naujienos
+    defaults: { _controller: MeridianCoreBundle:Default:news }

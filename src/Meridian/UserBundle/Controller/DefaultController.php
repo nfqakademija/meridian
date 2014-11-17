@@ -12,14 +12,7 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $user_id = $this->getUser();
-        $tt = $this->getUser();
-
-        $pic = $user_id->getProfilePicturePath();
-        $dd = $this->getDoctrine()->getManager()->createQuery('SELECT p FROM MeridianUserBundle:User p ORDER BY p.scores ASC')->getResult();
-        $user_position = array_search($user_id, $dd);;
-        $new = [$dd[$user_position-2],$dd[$user_position-1],$dd[$user_position], $dd[$user_position+1], $dd[$user_position+2] ];
-        return $this->render('MeridianUserBundle:Default:welcome.html.twig', array('pic'=> $pic, 'scores' => $new));
+        return $this->render('MeridianUserBundle:Default:welcome.html.twig');
     }
 
     public function startAction()
