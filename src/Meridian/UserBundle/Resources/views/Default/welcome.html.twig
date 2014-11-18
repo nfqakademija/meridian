@@ -1,7 +1,7 @@
 {% extends "::userbase.html.twig" %}
 
-
 {% block body %}
     <h2>Žaidimo puslapis</h2>
     <h5>Welcome {{ app.user }} , Love to see you back. </h5>
+    {% render url('meridian_core_game') %}
 {% endblock %}

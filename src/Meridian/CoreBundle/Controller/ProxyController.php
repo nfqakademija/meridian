@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: simas
- * Date: 16/11/14
- * Time: 19:17
- */
+
 
 namespace Meridian\CoreBundle\Controller;
 

@@ -1,10 +1,4 @@
-{% extends "::base.html.twig" %}
 {% block body %}
-    {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="flash-notice">
-            {{ flashMessage }}
-        </div>
-    {% endfor %}
     <h1>Tu esi {{ level }} lygį ir turi {{ scores }}</h1>
    <h1> {{ game }}</h1>
   <h1>Klausimas:  {{ question }}</h1>

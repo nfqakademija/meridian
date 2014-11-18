@@ -109,10 +109,17 @@ font-size: 16px;">  <a href="{{ path("fos_user_security_logout") }}" class="btn 
     </nav>
     <!-- /. NAV SIDE  -->
     <div id="page-wrapper" >
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="flash-notice">
+                {{ flashMessage }}
+            </div>
+        {% endfor %}
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
+
                     {% block body %}
+
                         <h2>Blank Page</h2>
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     {% endblock %}
