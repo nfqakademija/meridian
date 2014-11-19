@@ -2,10 +2,36 @@
 
 {% block body %}
     <div class="container">
-        <h1>Game #{{ game.id }} <a href="#">Pridėti klausimus</a></h1>
+        <h1>Game #{{ game.id }} <a href="{{ path('admin_show_available_questions', {'id':  game.id}) }}">Pridėti klausimus</a></h1>
+
         <h2>{{ game.name }}</h2>
 
         <p>{{ game.description }}</p>
+
+        <p>Klausimai:</p>
+        <br>
+        <table border="1" style="width:100%">
+            <tr>
+                <th>ID</th>
+                <th>Klausimas</th>
+                <th>Aprašymas</th>
+                <th>Nuotrauka</th>
+                <th>Atsakymo ID</th>
+                <th>Redaguoti</th>
+            </tr>
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question.id }}</td>
+                    <td>{{ question.question.question }}</td>
+                    <td>{{ question.question.description }}</td>
+                    <td>{{ question.question.image }}</td>
+                    <td><a href="{{ path('meridian_core_answer_edit',{'id': question.question.answerId}) }}">{{ question.question.answerId }}</a>
+                    </td>
+                    <td><a href="{{ path('meridian_core_question_edit',{'id': question.id}) }}">Edit</a></td>
+                    {#<td><a href="{{ path('meridian_core_question_remove',{'id': question.id}) }}">Delete</a></td>#}
+                </tr>
+            {% endfor %}
+        </table>
         <a href="{{ path('admin_home_page') }}">Grįžti į pagrindinį</a>
     </div>
 {% endblock %}

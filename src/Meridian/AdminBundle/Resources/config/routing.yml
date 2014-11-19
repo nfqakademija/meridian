@@ -35,3 +35,13 @@ admin_update_game:
 admin_delete_game:
     path:   /admin/delete/{id}
     defaults: { _controller: MeridianAdminBundle:Default:deleteGame }
+
+
+admin_show_available_questions:
+    path:   /admin/available-questions/{id}
+    defaults: { _controller: MeridianAdminBundle:Default:showAvailable }
+
+
+admin_add_question_to_the_game:
+    path:   /admin/add-question-to-game/{game_id}/{question_id}
+    defaults: { _controller: MeridianAdminBundle:Default:addQuestionGame }

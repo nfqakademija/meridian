@@ -2,6 +2,7 @@
 
 namespace Meridian\AdminBundle\Controller;
 
+use Meridian\CoreBundle\Entity\GameQuestion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Meridian\CoreBundle\Entity\Game;
@@ -56,9 +57,11 @@ class DefaultController extends Controller
     public function showGameAction($id){
         $em = $this->getDoctrine()->getManager();
         $game = $em->getRepository('MeridianCoreBundle:Game')->find($id);
+        $questions = $game->getGameQuestions();
 
         return $this->render('MeridianAdminBundle:Default:show_game.html.twig', array(
-            'game' => $game
+            'game' => $game,
+            'questions' => $questions
         ));
     }
 
@@ -110,5 +113,46 @@ class DefaultController extends Controller
         $em->remove($game);
         $em->flush();
         return $this->redirect($this->generateUrl('admin_show_all_games'));
+    }
+
+
+    public function showAvailableAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $not_listed = [];
+        $listed = [];
+        $game_name = $em->getRepository('MeridianCoreBundle:Game')->find($id);
+        $game = $em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId' => $id));
+        $question = $em->getRepository('MeridianCoreBundle:Question')->findAll();
+        foreach($game as $item) {
+            if (!in_array($item->getQuestionId(), $listed)){
+                $listed[] = $item->getQuestionId();
+            }
+        }
+        foreach($question as $item) {
+            if (!in_array($item->getId(), $listed)) {
+                $not_listed[] = $item;
+            }
+        }
+        return $this->render('MeridianAdminBundle:Default:available_questions.html.twig', array(
+            'questions' => $not_listed,
+            'game' => $game_name));
+    }
+
+    public function addQuestionGameAction($game_id, $question_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $game = $em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId' => $game_id));
+        $position_in_game = end($game)->getPositionInGame();
+        $new = new GameQuestion();
+        $new->setGameId($game_id)
+        ->setQuestionId($question_id)
+        ->setPositionInGame($position_in_game + 1);
+//        var_dump($new);
+//        exit;
+        $em->persist($new);
+        $em->flush();
+        return $this->redirect($this->generateUrl('admin_show_available_questions'));
     }
 }

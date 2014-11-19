@@ -118,9 +118,10 @@ class DefaultController extends Controller
 
     }
 
-
     public function newsAction()
     {
         return $this->render('MeridianCoreBundle:Proxy:news.html.twig');
     }
+
+
 }
