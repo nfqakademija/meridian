@@ -143,7 +143,13 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $game = $em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId' => $game_id));
-        $position_in_game = end($game)->getPositionInGame();
+        if (count($game) == 0) {
+            $position_in_game = 0;
+        }
+        else {
+            $position_in_game = end($game)->getPositionInGame();
+        }
+
 
         $eMGame = $this->getDoctrine()->getRepository('MeridianCoreBundle:Game')->find($game_id);
         $eMQuestion = $this->getDoctrine()->getRepository('MeridianCoreBundle:Question')->find($question_id);
