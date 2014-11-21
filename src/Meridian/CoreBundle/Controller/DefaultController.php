@@ -113,6 +113,7 @@ class DefaultController extends Controller
         {
             return new RedirectResponse('game');
         }
+
         return $this->render('MeridianCoreBundle:Default:game.html.twig',
             ['question' => $game->getQuestionForGame(), 'game' => $game->getGameName(),'answerForm' => $form->createView(),'level'=>$game->getUserLevel(),'scores'=>$game->getUserScores()]);
 
