@@ -142,17 +142,16 @@ class DefaultController extends Controller
     public function addQuestionGameAction($game_id, $question_id)
     {
         $em = $this->getDoctrine()->getManager();
-
         $game = $em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId' => $game_id));
         $position_in_game = end($game)->getPositionInGame();
+
+        $eMGame = $this->getDoctrine()->getRepository('MeridianCoreBundle:Game')->find($game_id);
+        $eMQuestion = $this->getDoctrine()->getRepository('MeridianCoreBundle:Question')->find($question_id);
+
         $new = new GameQuestion();
-        $new->setGameId($game_id)
-        ->setQuestionId($question_id)
-        ->setPositionInGame($position_in_game + 1);
-//        var_dump($new);
-//        exit;
+        $new->setGame($eMGame)->setQuestion($eMQuestion)->setPositionInGame($position_in_game+1);
         $em->persist($new);
         $em->flush();
-        return $this->redirect($this->generateUrl('admin_show_available_questions'));
+        return $this->redirect($this->generateUrl('admin_show_available_questions', array('id' => $game_id)));
     }
 }
