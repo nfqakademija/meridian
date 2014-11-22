@@ -45,3 +45,4 @@ admin_show_available_questions:
 admin_add_question_to_the_game:
     path:   /admin/add-question-to-game/{game_id}/{question_id}
     defaults: { _controller: MeridianAdminBundle:Default:addQuestionGame }
+

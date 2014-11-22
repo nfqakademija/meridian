@@ -10,7 +10,6 @@ class ProxyController extends Controller
 {
     public function getScoresAction()
     {
-        $new = [];
         $user_id = $this->getUser();
         $em = $this->getDoctrine()->getManager();
         $dd = $em->getRepository('MeridianUserBundle:User')->findBy(array('id' => $user_id));
