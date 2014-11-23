@@ -1,0 +1,30 @@
+admin_expo:
+    path:     /
+    defaults: { _controller: "MeridianCoreBundle:Expo:index" }
+
+admin_expo_show:
+    path:     /{id}/show
+    defaults: { _controller: "MeridianCoreBundle:Expo:show" }
+
+admin_expo_new:
+    path:     /new
+    defaults: { _controller: "MeridianCoreBundle:Expo:new" }
+
+admin_expo_create:
+    path:     /create
+    defaults: { _controller: "MeridianCoreBundle:Expo:create" }
+    requirements: { _method: post }
+
+admin_expo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MeridianCoreBundle:Expo:edit" }
+
+admin_expo_update:
+    path:     /{id}/update
+    defaults: { _controller: "MeridianCoreBundle:Expo:update" }
+    requirements: { _method: post|put }
+
+admin_expo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MeridianCoreBundle:Expo:delete" }
+    requirements: { _method: post|delete }
