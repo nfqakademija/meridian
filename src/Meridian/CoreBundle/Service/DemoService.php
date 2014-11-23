@@ -120,7 +120,6 @@ class DemoService
     public function getResponseForNextQuestion()
     {
         $q = $this->getNextQuestion();
-        var_dump($this->nextQuestionId);
         if ($q['1']['questionId'] <= 3) {
             return $this->getResponse($q['0'], $q['1']);
         } else {

@@ -3,7 +3,7 @@ services:
         class: Meridian\CoreBundle\Service\DemoService
         arguments: ["@doctrine.orm.entity_manager", "@form.factory", "@router", "@meridian_core.repo.game"]
 
-    meridian_core.questionanswerservice:
+    meridian_core.question_answer_service:
         class: Meridian\CoreBundle\Service\QuestionAnswerService
         arguments: ["@doctrine.orm.entity_manager", "@form.factory"]
 

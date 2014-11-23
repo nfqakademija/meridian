@@ -52,16 +52,18 @@ class Game
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=20, options={"default" = "0"})
+     * @ORM\Column(name="objectName", type="string", length=255, nullable=true)
+     */
+    private $objectName;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="boolean", length=20, options={"default" = "0"})
      */
     private $status;
-
-
-
     /**
      * Get id
      *
@@ -195,5 +197,28 @@ class Game
     public function getGameQuestions()
     {
         return $this->gameQuestions;
+    }
+
+    /**
+     * Set objectName
+     *
+     * @param string $objectName
+     * @return Game
+     */
+    public function setObjectName($objectName)
+    {
+        $this->objectName = $objectName;
+
+        return $this;
+    }
+
+    /**
+     * Get objectName
+     *
+     * @return string 
+     */
+    public function getObjectName()
+    {
+        return $this->objectName;
     }
 }

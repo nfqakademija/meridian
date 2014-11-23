@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class GameQuestion
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Meridian\CoreBundle\Entity\Game", inversedBy="gameQuestions")
+     * @ORM\ManyToOne(targetEntity="Meridian\CoreBundle\Entity\Game", inversedBy="gameQuestions", cascade={"persist"})
      * @ORM\JoinColumn(name="gameId", referencedColumnName="id")
      **/
     protected $game;

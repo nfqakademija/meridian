@@ -9,9 +9,11 @@
 namespace Meridian\CoreBundle\Service;
 
 use Meridian\CoreBundle\Form\Model\QuestionAnswer;
+use Meridian\CoreBundle\Form\Type\QuestionType;
 use Symfony\Component\Form\FormFactoryInterface;
 use Doctrine\ORM\EntityManager;
 use Meridian\CoreBundle\Form\Type\QuestionAnswerType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Meridian\CoreBundle\Entity;
 use Symfony\Component\Form;
@@ -45,4 +47,27 @@ class QuestionAnswerService
         return $this->questionAnswerForm;
     }
 
+    public function getAllQuestions()
+    {
+        return $this->em->getRepository('MeridianCoreBundle:Question')->findAll();
+    }
+
+    public function removeOneQuestion($id)
+    {
+        $question = $this->em->getRepository('MeridianCoreBundle:Question')->find($id);
+        $this->em->remove($question);
+        $this->em->flush();
+    }
+
+    public function getQuestionEditForm($id)
+    {
+        return $this->formFactory->createBuilder(new QuestionType(), $this->getRepositoryForQuestionEdit($id))
+            ->add('Update', 'submit')
+            ->getForm();
+    }
+
+    public function getRepositoryForQuestionEdit($id)
+    {
+        return $this->em->getRepository('MeridianCoreBundle:Question')->find($id);
+    }
 } 
