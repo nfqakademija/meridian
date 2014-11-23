@@ -128,9 +128,10 @@ class DefaultController extends Controller
         }
     }
 
-    public function newsAction()
+    public function expoAction()
     {
-        return $this->render('MeridianCoreBundle:Proxy:news.html.twig');
+        $expo = $this->getDoctrine()->getRepository('MeridianCoreBundle:Expo')->findAll();
+        return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $expo));
     }
 
 

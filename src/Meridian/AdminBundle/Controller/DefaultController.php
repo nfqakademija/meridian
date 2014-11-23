@@ -160,4 +160,5 @@ class DefaultController extends Controller
         $em->flush();
         return $this->redirect($this->generateUrl('admin_show_available_questions', array('id' => $game_id)));
     }
+
 }

@@ -1,3 +1,7 @@
+meridian_core_admin_expo:
+    resource: "@MeridianCoreBundle/Resources/config/routing/expo.yml"
+    prefix:   /admin/expo
+
 meridian_core_homepage:
     path:     /hello/{name}
     defaults: { _controller: MeridianCoreBundle:Default:index }
@@ -29,6 +33,6 @@ meridian_core_game:
       defaults: { _controller: MeridianCoreBundle:Default:startGame }
 
 
-naujienos:
+expo:
     path:   /naujienos
-    defaults: { _controller: MeridianCoreBundle:Default:news }
+    defaults: { _controller: MeridianCoreBundle:Default:expo }
