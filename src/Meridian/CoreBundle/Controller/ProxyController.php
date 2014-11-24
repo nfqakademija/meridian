@@ -10,29 +10,9 @@ class ProxyController extends Controller
 {
     public function getScoresAction()
     {
-        $user_id = $this->getUser();
-        $em = $this->getDoctrine()->getManager();
-        $dd = $em->getRepository('MeridianUserBundle:User')->findBy(array('id' => $user_id));
-
-        $user_score = $dd[0]->getScores();
-        $lower = $em->getRepository('MeridianUserBundle:User')->createQueryBuilder('b')
-            ->select('b')
-            ->where('b.scores < :user_score')
-            ->setParameter('user_score', $user_score)
-            ->setMaxResults(2)
-            ->getQuery()
-            ->getResult();
-
-        $bigger = $em->getRepository('MeridianUserBundle:User')->createQueryBuilder('b')
-            ->select('b')
-            ->where('b.scores > :user_score')
-            ->setParameter('user_score', $user_score)
-            ->setMaxResults(2)
-            ->getQuery()
-            ->getResult();
-
-        $new = array_merge($lower, array($user_id), $bigger);
-        return $this->render('MeridianCoreBundle:Proxy:scores.html.twig', ['scores' => $new]);
+        $scoreService = $this->get('meridian_core.scores');
+        $scores = $scoreService->getScoresData();
+        return $this->render('MeridianCoreBundle:Proxy:scores.html.twig', array('scores' => $scores));
     }
 
     public function getProfilePicAction()

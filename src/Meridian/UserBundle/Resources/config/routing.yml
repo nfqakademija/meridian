@@ -16,3 +16,6 @@ test:
     defaults: { _controller: MeridianUserBundle:Default:test }
 
 
+score_test:
+    path: /welcome/score
+    defaults: { _controller: MeridianCoreBundle:Proxy:getScores }

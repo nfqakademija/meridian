@@ -17,3 +17,10 @@ services:
             factory_method:   getRepository
             arguments: ['MeridianCoreBundle:Game']
 
+    meridian_core.scores:
+        class:  Meridian\CoreBundle\Service\ScoresService
+        arguments: ["@doctrine.orm.entity_manager", "@service_container"]
+
+
+
+
