@@ -14,17 +14,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Game
 {
     /**
-     * @ORM\ManyToMany(targetEntity="Questions")
-     * @ORM\JoinTable(name="game_questions",
-     *      joinColumns={@ORM\JoinColumn(name="game_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="question_id", referencedColumnName="id")}
-     *      )
+     * @ORM\OneToMany(targetEntity="GameQuestion", mappedBy="game")
      **/
-   protected $questionss;
+    protected $gameQuestions;
 
     public function __construct()
     {
-        $this->questionss = new ArrayCollection();
+        $this->gameQuestions = new ArrayCollection();
     }
 
     /**
@@ -46,25 +42,28 @@ class Game
     /**
      * @var string
      *
-     * @ORM\Column(name="gamefoto", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
      */
-    private $gamefoto;
+    private $image;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
-
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=20)
+     * @ORM\Column(name="objectName", type="string", length=255, nullable=true)
+     */
+    private $objectName;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="boolean", length=20, options={"default" = "0"})
      */
     private $status;
-
-
     /**
      * Get id
      *
@@ -97,7 +96,30 @@ class Game
     {
         return $this->name;
     }
-    
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Game
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
     /**
      * Set description
      *
@@ -145,58 +167,58 @@ class Game
     }
 
     /**
-     * Set gamefoto
+     * Add gameQuestions
      *
-     * @param string $gamefoto
+     * @param \Meridian\CoreBundle\Entity\GameQuestion $gameQuestions
      * @return Game
      */
-    public function setGamefoto($gamefoto)
+    public function addGameQuestion(\Meridian\CoreBundle\Entity\GameQuestion $gameQuestions)
     {
-        $this->gamefoto = $gamefoto;
+        $this->gameQuestions[] = $gameQuestions;
 
         return $this;
     }
 
     /**
-     * Get gamefoto
+     * Remove gameQuestions
      *
-     * @return string 
+     * @param \Meridian\CoreBundle\Entity\GameQuestion $gameQuestions
      */
-    public function getGamefoto()
+    public function removeGameQuestion(\Meridian\CoreBundle\Entity\GameQuestion $gameQuestions)
     {
-        return $this->gamefoto;
+        $this->gameQuestions->removeElement($gameQuestions);
     }
 
     /**
-     * Add questionss
-     *
-     * @param \Meridian\CoreBundle\Entity\Questions $questionss
-     * @return Game
-     */
-    public function addQuestionss(\Meridian\CoreBundle\Entity\Questions $questionss)
-    {
-        $this->questionss[] = $questionss;
-
-        return $this;
-    }
-
-    /**
-     * Remove questionss
-     *
-     * @param \Meridian\CoreBundle\Entity\Questions $questionss
-     */
-    public function removeQuestionss(\Meridian\CoreBundle\Entity\Questions $questionss)
-    {
-        $this->questionss->removeElement($questionss);
-    }
-
-    /**
-     * Get questionss
+     * Get gameQuestions
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getQuestionss()
+    public function getGameQuestions()
     {
-        return $this->questionss;
+        return $this->gameQuestions;
+    }
+
+    /**
+     * Set objectName
+     *
+     * @param string $objectName
+     * @return Game
+     */
+    public function setObjectName($objectName)
+    {
+        $this->objectName = $objectName;
+
+        return $this;
+    }
+
+    /**
+     * Get objectName
+     *
+     * @return string 
+     */
+    public function getObjectName()
+    {
+        return $this->objectName;
     }
 }

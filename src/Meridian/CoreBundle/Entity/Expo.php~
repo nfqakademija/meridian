@@ -158,27 +158,4 @@ class Expo
     {
         return $this->link;
     }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return Expo
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string 
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
 }

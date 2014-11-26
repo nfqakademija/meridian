@@ -11,11 +11,14 @@ start_page:
     path:   /
     defaults: { _controller: MeridianUserBundle:Default:start }
 
-test:
-    path:   /test
-    defaults: { _controller: MeridianUserBundle:Default:test }
-
-
 score_test:
     path: /welcome/score
     defaults: { _controller: MeridianCoreBundle:Proxy:getScores }
+
+score_max:
+    path: /demo/score
+    defaults: { _controller: MeridianCoreBundle:Proxy:getMaxScores }
+
+about:
+    path:   /about
+    defaults: { _controller: MeridianUserBundle:Default:about }
