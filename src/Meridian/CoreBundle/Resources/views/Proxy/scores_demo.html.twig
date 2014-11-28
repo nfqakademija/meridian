@@ -1,0 +1,12 @@
+{% for score in scores %}
+    <div style="float: left; color: #FFFFFF; margin-right: 10px;" align="center">
+        {{ score.getUsername }}
+        {% if score.getProfilePicturePath is null%}
+                <img src="{{ asset('images/find_user.png') }}" alt="" height="40" width="40" style="display: block;">
+                <span>{{ score.getScores }}</span>
+        {% else %}
+                <img src="{{ asset('uploads/user/profilepics/'~score.getProfilePicturePath) }}" alt="" height="40" width="40" style="display: block;">
+                <span>{{ score.getScores }}</span>
+        {% endif %}
+    </div>
+{% endfor %}

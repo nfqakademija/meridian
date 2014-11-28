@@ -15,9 +15,9 @@ score_test:
     path: /welcome/score
     defaults: { _controller: MeridianCoreBundle:Proxy:getScores }
 
-score_max:
+score_demo:
     path: /demo/score
-    defaults: { _controller: MeridianCoreBundle:Proxy:getMaxScores }
+    defaults: { _controller: MeridianCoreBundle:Proxy:getDemoScores }
 
 about:
     path:   /about

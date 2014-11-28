@@ -1,7 +1,7 @@
-{% extends "::demobase.html.twig" %}
+{% extends "::userbase.html.twig" %}
 
 {% block title %}MeridianCoreBundle:Demo:index{% endblock %}
-
+{% block user %} Demo {% endblock %}
 {% block body %}
     {% for flashMessage in app.session.flashbag.get('notice') %}
         <div class="flash-notice">

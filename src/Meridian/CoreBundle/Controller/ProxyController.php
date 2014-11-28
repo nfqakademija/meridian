@@ -22,11 +22,11 @@ class ProxyController extends Controller
         return $this->render('MeridianCoreBundle:Proxy:profile_pic.html.twig', array('pic'=> $pic));
     }
 
-    public function getMaxScoresAction()
+    public function getDemoScoresAction()
     {
         $scores = $this->getDoctrine()->getRepository('MeridianUserBundle:User')->findBy(array(), array('scores'=>'desc'), 5);
         $reversed = array_reverse($scores);
-        return $this->render('MeridianCoreBundle:Proxy:scores_max.html.twig', array('scores' => $reversed));
+        return $this->render('MeridianCoreBundle:Proxy:scores_demo.html.twig', array('scores' => $reversed));
     }
 
 }
