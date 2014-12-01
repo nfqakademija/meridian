@@ -35,4 +35,4 @@ meridian_core_game:
 
 expo:
     path:   /naujienos
-    defaults: { _controller: MeridianCoreBundle:Default:expo }
+    defaults: { _controller: MeridianCoreBundle:Expo:expo }

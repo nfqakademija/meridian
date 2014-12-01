@@ -127,12 +127,4 @@ class DefaultController extends Controller
                 ]);
         }
     }
-
-    public function expoAction()
-    {
-        $expo = $this->getDoctrine()->getRepository('MeridianCoreBundle:Expo')->findAll();
-        return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $expo));
-    }
-
-
 }

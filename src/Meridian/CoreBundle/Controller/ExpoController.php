@@ -221,4 +221,25 @@ class ExpoController extends Controller
             ->getForm()
         ;
     }
+
+    public function expoAction(Request $request)
+    {
+        $expo = $this->getDoctrine()->getRepository('MeridianCoreBundle:Expo');
+        $allExpo = $expo->findAll();
+
+        $cities = $expo->createQueryBuilder('cc')
+                ->select('cc.city')
+                ->distinct()
+                ->getQuery();
+
+        $uniqCities = $cities->getResult();
+        $form = $this->createFormBuilder()
+            ->add('Miestas', 'choice', array(
+                'choices' => $uniqCities,
+                'expanded' => true
+            ))
+            ->getForm();
+
+        return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $allExpo, 'form'=>$form->createView()));
+    }
 }
