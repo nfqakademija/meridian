@@ -24,10 +24,25 @@
 <div class="container">
     <div class="row">
         <div class="span12">
-            {% block body %}{% endblock %}
+                <div class="row text-center ">
+                    <div class="col-md-12">
+                        <br/><br/>
+
+                        <h2> Muziejų populiarinimo projektas</h2>
+                        <br/>
+                    </div>
+                </div>
+                <div class="row ">
+
+                    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+                        <div class="panel panel-default">
+                            {% block body %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 {% block javascripts %}
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
