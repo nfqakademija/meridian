@@ -4,24 +4,23 @@
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
         <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/bootsnipp.css') }}" rel="stylesheet">
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-
+        <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet">
+        <!-- CUSTOM STYLES-->
+        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     {% endblock %}
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
-<body>
-<div class="container">
+<body class="background-black">
+<div class="container" >
     <div class="row">
         <div class="span12">
                 <div class="row text-center ">
@@ -44,7 +43,7 @@
         </div>
     </div>
 {% block javascripts %}
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 {% endblock %}
 </body>

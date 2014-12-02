@@ -1,20 +1,20 @@
     {% for score in scores %}
-    <div style="float: left; color: #FFFFFF; margin-right: 10px;" align="center">
+    <div class="scores-wrapper">
         {{ score.getUsername }}
         {% if score.getProfilePicturePath is null%}
             {% if score.getUsername == app.user %}
-                <img src="{{ asset('images/find_user.png') }}" alt="" height="40" width="40" style="padding:3px; border:1px solid #021a40; background-color:#ff0; display: block;">
+                <img src="{{ asset('images/find_user.png') }}" alt="image" class="scores-image size40">
                 <span>{{ score.getScores }}</span>
             {% else %}
-                <img src="{{ asset('images/find_user.png') }}" alt="" height="40" width="40" style="display: block;">
+                <img src="{{ asset('images/find_user.png') }}" alt="image" class="scores-image-default size40">
                 <span>{{ score.getScores }}</span>
                 {% endif %}
         {% else %}
             {% if score.getUsername == app.user %}
-                <img src="{{ asset('uploads/user/profilepics/'~score.getProfilePicturePath) }}" alt="" height="40" width="40" style="padding:3px; border:1px solid #021a40; background-color:#ff0; display: block;">
+                <img src="{{ asset('uploads/user/profilepics/'~score.getProfilePicturePath) }}" alt="image" class="scores-image size40">
                 <span>{{ score.getScores }}</span>
                 {% else %}
-                    <img src="{{ asset('uploads/user/profilepics/'~score.getProfilePicturePath) }}" alt="" height="40" width="40" style="display: block;">
+                    <img src="{{ asset('uploads/user/profilepics/'~score.getProfilePicturePath) }}" alt="image" class="scores-image-default size40">
                     <span>{{ score.getScores }}</span>
                 {% endif %}
         {% endif %}

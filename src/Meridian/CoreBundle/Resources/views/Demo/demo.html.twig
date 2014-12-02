@@ -8,7 +8,7 @@
             {{ flashMessage }}
         </div>
     {% endfor %}
-    <h2>Welcome to {{ game }}!!!</h2>
-    <h2>Klausimas: {{ question }} </h2>
+    <h2>Sveikas atvykęs į {{ game }}!!!</h2>
+    <h2>Klausimas: <span class="question"> {{ question }} </span></h2>
     {{ form(answerForm) }}
 {% endblock %}

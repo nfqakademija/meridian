@@ -1,22 +1,41 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block stylesheets %}
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+    <!-- FONTAWESOME STYLES-->
+    <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet">
+    <!-- CUSTOM STYLES-->
+    <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+{% endblock %}
+
 {% block fos_user_content %}
     {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="text-center alert-danger-alt padding20">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form action="{{ path("admin_check") }}" method="post">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1 margin-top15">
+    <div class="panel panel-default border-radius0">
+        <div class="panel-heading text-center panel-background"> Administratoriaus prisijungimas </div>
+        <div class="panel-body">
 
-        <label for="username">{{ 'security.login.username'|trans }}</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+        <form class="text-center padding10" action="{{ path("admin_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-        <label for="password">{{ 'security.login.password'|trans }}</label>
-        <input type="password" id="password" name="_password" required="required" />
+            <label for="username">{{ 'security.login.username'|trans }}</label>
+            <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" required="required" placeholder="Vartotojo vardas"/>
 
-        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-        <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+            <label for="password">{{ 'security.login.password'|trans }}</label>
+            <input type="password" id="password" class="form-control whitespace-bottom" name="_password" required="required" placeholder="Slaptažodis"/>
 
-        <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-    </form>
+            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+            <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+            <hr>
+            <input type="submit" id="_submit" class="btn btn-danger square-btn-adjust text-center" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+        </form>
+    </div>
+    </div>
+    </div>
 {% endblock fos_user_content %}

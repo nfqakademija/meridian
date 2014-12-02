@@ -13,7 +13,7 @@
     GENERAL  STYLES    
     =============================================*/
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'FontAwesome', 'Open Sans', sans-serif;
 }
 
  #wrapper {
@@ -24,7 +24,7 @@ body {
 #page-wrapper {
     padding: 15px 15px;
     min-height: 600px;
-    background:#F3F3F3;
+    background:#fff;
    
 }
 #page-inner {
@@ -207,12 +207,13 @@ color: #8d8888;
 
 .navbar-cls-top .navbar-brand {
 	color: #fff;
-background: #C90000;
-width: 260px;
-text-align: center;
-height: 80px;
-font-size: 30px;
-font-weight: 700;
+    background: #C90000;
+    width: 260px;
+    text-align: center;
+    height: 100px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 220%;
 }
 .active-menu {
     background-color:#C90000!important;
@@ -375,5 +376,124 @@ line-height: 1.428571429;
 }
    
 }
+/*==============================================
+    Naujas css
+    =============================================*/
+.alert-purple { border-color: #694D9F;background: #694D9F;color: #fff; }
+.alert-info-alt { border-color: #B4E1E4;background: #81c7e1;color: #fff; }
+.alert-danger-alt { border-color: #B63E5A;background: #E26868;color: #fff; }
+.alert-warning-alt { border-color: #F3F3EB;background: #E9CEAC;color: #fff; }
+.alert-success-alt { border-color: #19B99A;background: #20A286;color: #fff; }
+.glyphicon { margin-right:10px; }
+.alert a {color: gold;}
 
+.size128{
+    height: 128px;
+    width: 128px;
+}
+.size40{
+    height: 40px;
+    width: 40px;
+}
+.scores-wrapper{
+    float: left;
+    color: #FFFFFF;
+    margin-right: 10px;
+    text-align: center;
+    padding: 10px;
+}
+.scores-image{
+    padding: 3px;
+    b order: 1px solid #31152b;
+    background-color:#C90000;
+    display: block;
+    b order-radius: 30px;
+    box-shadow: 0px 0px 2px #45141f;
+}
+.scores-image-default{
+    display: block;
+}
+.background-black{
+    background: black;
+}
+.margin-left30{
+    margin-left: 30px;
+}
+.margin-top15{
+    margin-top: 15px;
+}
+.header-title-style{
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #fff;
+    background: #C90000;
+    line-height: 220%;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 
+}
+.header-background{
+    background: #A70303;
+    m argin-top: 7%;
+# ++++++++++++++++++++++++++++++++
+}
+.padding0{
+    padding: 0px;
+}
+.padding10{
+    padding: 10px;
+}
+.padding20{
+    padding: 20px;
+}
+.margin-bottom0{
+    margin-bottom: 0px;
+}
+
+.header-message{
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px 20px 10px 20px;
+}
+.logout-btn{
+    color: #fff;
+    padding: 10px 20px 10px 20px;
+    float: right;
+    font-size: 16px;
+}
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display:none;
+}
+.username{
+color: #fff;
+    margin-top: 25px;
+}
+.user-edit{
+    margin-bottom: 10px;
+}
+.question{
+    color: #428BCA;
+}
+.table-style{
+    border:1;
+    width:100%;
+}
+.whitespace-bottom{
+    margin-bottom: 15px;
+}
+.border-radius0{
+    border-radius: 0px;
+    border: 1px solid rgba(23, 7, 11, 0.59);
+    box-shadow: 0px 0px 10px #888;
+}
+.panel-background{
+    background-color: #4D4D4D;
+    color: #fff;
+    font-weight: 700;
+}

@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+    <nav class="navbar navbar-default navbar-cls-top margin-bottom0" role="navigation " >
         <div class="navbar-header">
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -32,14 +32,11 @@
             {{ render(controller("MeridianCoreBundle:Proxy:getScores")) }}
         {% else %}
             {{ render(controller("MeridianCoreBundle:Proxy:getDemoScores")) }}
-            <div style="color: #ffffff; text-align: center; vertical-align: middle;">
+            <div class="header-message">
                 Ar gali juos pralenkti? <a href="{{ path("fos_user_registration_register") }}">Užsiregistruok!</a>
             </div>
         {% endif %}
-        <div style="color: white;
-padding: 15px 50px 5px 50px;
-float: right;
-font-size: 16px;"><a href="{{ path("fos_user_security_logout") }}"
+        <div class="logout-btn"><a href="{{ path("fos_user_security_logout") }}"
                      class="btn btn-danger square-btn-adjust">Atsijungti</a></div>
     </nav>
     <!-- /. NAV TOP  -->
@@ -47,30 +44,29 @@ font-size: 16px;"><a href="{{ path("fos_user_security_logout") }}"
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li class="text-center">
-                    <div class="name">
+                    <div class="name username">
                         {% block user %}
                             {{ app.user }}
                         {% endblock %}
                     </div>
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         {{ render(controller("MeridianCoreBundle:Proxy:getProfilePic")) }}
-                        <div class="edit-profile">
-                            <a href="{{ path("fos_user_profile_edit") }}">Redaguoti profilį</a>
+                        <div class="edit-profile user-edit">
+                            <a href="{{ path("fos_user_profile_edit") }}" >Redaguoti profilį</a>
                         </div>
                         <li>
-                            <a href="{{ path("meridian_core_game") }}"><i class="fa fa-gamepad fa-3x"></i> Žaidimas</a>
+                            <a href="{{ path("meridian_core_game") }}"><i class="fa fa-gamepad fa-3x"></i> Žaidimas </a>
                         </li>
                         <li>
-                            <a href="{{ path("expo") }}"><i class="fa fa-desktop fa-3x"></i> Naujos parodos</a>
+                            <a href="{{ path("expo") }}"><i class="fa fa-desktop fa-3x"></i> Naujos parodos </a>
                         </li>
                         <li>
-                            <a href="apie.html"><i class="fa fa-desktop fa-3x"></i> Apie projektą</a>
+                            <a href="{{ path("about") }}"><i class="fa fa-desktop fa-3x"></i> Apie projektą </a>
                         </li>
                     {% else %}
-                        <img src="{{ asset('images/find_user.png') }}" alt="" class="user-image img-responsive" height="128"
-                             width="128">
+                        <img src="{{ asset('images/find_user.png') }}" alt="image" class="user-image img-responsive size128">
                         <li>
-                            <a href="apie.html"><i class="fa fa-desktop fa-3x"></i> Apie projektą </a>
+                            <a href="{{ path("about") }}"><i class="fa fa-desktop fa-3x"></i> Apie projektą </a>
                         </li>
                     {% endif %}
 
@@ -108,16 +104,21 @@ font-size: 16px;"><a href="{{ path("fos_user_security_logout") }}"
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>
+
+<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return on the top page" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
+
+<script src="{{ asset('assets/js/back-to-top.js') }}"></script>
+
 <!-- /. WRAPPER  -->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 <!-- JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.10.2.js"></script>
+<script src="{{ asset('assets/js/jquery-1.10.2.js') }}"></script>
 <!-- BOOTSTRAP SCRIPTS -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 <!-- METISMENU SCRIPTS -->
-<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
 <!-- CUSTOM SCRIPTS -->
-<script src="assets/js/custom.js"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 
 
 </body>
