@@ -1,21 +1,40 @@
 {% extends "::userbase.html.twig" %}
 {% block title %} Naujos Parodos {% endblock %}
 {% block body %}
-    <div class="dropdown">
-        {{ form(form) }}
-    </div>
-    <div class="expo">
-        {% for expo in expos %}
-            <div class="expo-group">
-                <p>{{ expo.name }}</p>
-
-                <p>{{ expo.address }}</p>
-
-                <p>{{ expo.time }}</p>
-                <a href="{{ expo.link }}">Išsamiau ></a>
-                <hr>
+    <div class="container">
+        <!-------->
+        <div id="content">
+            <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                {% for city in cities %}
+                    <li><a href="#{{ city.city }}" data-toggle="tab">{{ city.city }}</a></li>
+                {% endfor %}
+            </ul>
+            <div id="my-tab-content" class="tab-content">
+                {% for city in cities %}
+                    <div class="tab-pane active" id="{{ city.city }}">
+                        <h1>{{ city.city }}</h1>
+                        {% for expo in expos %}
+                            {% if expo.city == city.city %}
+                                <div class="expo-group">
+                                    <p>{{ expo.name }}</p>
+                                    <p>{{ expo.address }}</p>
+                                    <p>{{ expo.time }}</p>
+                                    <a href="{{ expo.link }}">Išsamiau ></a>
+                                    <hr>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
+        </div>
+
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $('#tabs').tab();
+            });
+        </script>
+    </div> <!-- container -->
 
 {% endblock %}

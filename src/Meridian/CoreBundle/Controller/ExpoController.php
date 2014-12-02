@@ -233,13 +233,16 @@ class ExpoController extends Controller
                 ->getQuery();
 
         $uniqCities = $cities->getResult();
-        $form = $this->createFormBuilder()
-            ->add('Miestas', 'choice', array(
-                'choices' => $uniqCities,
-                'expanded' => true
-            ))
-            ->getForm();
+//        var_dump($uniqCities);
+//        exit;
 
-        return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $allExpo, 'form'=>$form->createView()));
+//        $form = $this->createFormBuilder()
+//            ->add('Miestas', 'choice', array(
+//                'choices' => $uniqCities,
+//                'expanded' => true
+//            ))
+//            ->getForm();
+
+        return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $allExpo, 'cities'=>$uniqCities));
     }
 }
