@@ -19,6 +19,7 @@ class ExpoType extends AbstractType
             ->add('address')
             ->add('time')
             ->add('link')
+            ->add('city')
         ;
     }
     

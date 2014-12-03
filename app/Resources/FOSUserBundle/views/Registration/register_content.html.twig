@@ -20,12 +20,12 @@
 
 
                         {#{{ form_label(form.plainPassword.first) }}#}
-                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control whitespace-bottom', 'placeholder': form.plainPassword.vars.label}} ) }}
+                        {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control whitespace-bottom', 'placeholder': form.plainPassword.first.vars.label}} ) }}
                         {{ form_errors(form.plainPassword.first) }}
 
 
                         {#{{ form_label(form.plainPassword.second) }}#}
-                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control whitespace-bottom', 'placeholder': form.plainPassword.vars.label}} ) }}
+                        {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control whitespace-bottom', 'placeholder': form.plainPassword.second.vars.label}} ) }}
 
 
                         {{ form_rest(form) }}
