@@ -4,17 +4,16 @@
     <meta charset="UTF-8" />
     <title>{% block title %}Welcome!{% endblock %}</title>
     {% block stylesheets %}
-    <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/bootsnipp.css') }}" rel="stylesheet">
+        <!-- BOOTSTRAP STYLES-->
+        <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <!-- FONTAWESOME STYLES-->
+        <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet">
+        <!-- CUSTOM STYLES-->
+        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet">
+        <!-- GOOGLE FONTS-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -25,7 +24,9 @@
 {% endfor %}
 {% block body %}{% endblock %}
 {% block javascripts %}
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- JQUERY SCRIPTS -->
+    <script src="{{ asset('assets/js/jquery-1.10.2.js') }}"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 {% endblock %}
 </body>

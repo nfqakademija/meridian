@@ -3,15 +3,42 @@
 
 {% block body %}
 
+    {#<div class="container">#}
+        {#<h2> Sveikas, administratoriau {{ app.user }}</h2>#}
+        {#<ul>#}
+            {#<li><a href="{{ path("admin_new_game") }}">Kurti naujus žaidimus</a></li>#}
+            {#<li><a href="{{ path("admin_show_all_games") }}">Peržiūrėti visus žaidimus</a></li>#}
+            {#<li><a href="{{ path("admin_expo") }}">Peržiūrėti naujas parodas</a></li>#}
+
+        {#</ul>#}
+
+        {#<a href="{{ path("admin_logout") }}">atsijungti</a>#}
+    {#</div>#}
+    <h2>Sveikas, administratoriau {{ app.user }}</h2>
+
     <div class="container">
-        <h2> Sveikas, administratoriau {{ app.user }}</h2>
-        <ul>
-            <li><a href="{{ path("admin_new_game") }}">Kurti naujus žaidimus</a></li>
-            <li><a href="{{ path("admin_show_all_games") }}">Peržiūrėti visus žaidimus</a></li>
-            <li><a href="{{ path("admin_expo") }}">Peržiūrėti naujas parodas</a></li>
+        <div role="tabpanel">
 
-        </ul>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#new_game" aria-controls="home" role="tab" data-toggle="tab">Žaidimų kūrimas</a></li>
+                <li role="presentation"><a href="#show_games" aria-controls="profile" role="tab" data-toggle="tab">Žaidimų peržiūra</a></li>
+                <li role="presentation"><a href="#show_expos" aria-controls="messages" role="tab" data-toggle="tab">Parodų peržiūra </a></li>
+            </ul>
 
-        <a href="{{ path("admin_logout") }}">atsijungti</a>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="new_game">{{ render(path("admin_new_game")) }}</div>
+                <div role="tabpanel" class="tab-pane" id="show_games">{{ render(path("admin_show_all_games")) }}</div>
+                <div role="tabpanel" class="tab-pane" id="show_expos">{{ render(path("admin_expo")) }}</div>
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            jQuery(document).ready(function ($) {
+                $('#tabs').tab();
+            });
+        </script>
     </div>
 {% endblock %}
