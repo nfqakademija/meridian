@@ -508,3 +508,6 @@ color: #fff;
     color: #fff;
     font-weight: 700;
 }
+.bullet-no{
+    list-style-type: none;
+}

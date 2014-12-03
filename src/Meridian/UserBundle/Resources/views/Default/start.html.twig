@@ -1,36 +1,35 @@
 {% extends "::base.html.twig" %}
 {% block body %}
 
+{# Login form #}
+
                     <div class="panel-heading text-center panel-background">
                         <strong class=""> Įveskite prisijungimo duomenis </strong>
                     </div>
+
                     <div class="panel-body">
                         <form role="form" action="{{ path("fos_user_security_check") }}" method="post">
                             <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
 
                             <div class="form-group ">
-
                                 <input type="text" class="form-control" name="_username" required="required" placeholder="Vartotojo vardas">
                             </div>
-                            <div class="form-group ">
 
+                            <div class="form-group ">
                                 <input type="password" class="form-control whitespace-bottom" name="_password" required="required" placeholder="Slaptažodis">
                             </div>
-
-
-
 
                             <div>
                                 <button type="submit" class="btn btn-danger square-btn-adjust border-radius0">Prisijungti</button>
                             </div>
 
                             <div  class="margin-top15">
-                                            <span class="text-center">
-                                                   <a href="{{ path('fos_user_resetting_request') }}">(Pamiršau slaptažodį ☹)</a>
-                                            </span>
+                                <span class="text-center">
+                                    <a href="{{ path('fos_user_resetting_request') }}">(Pamiršau slaptažodį ☹)</a>
+                                </span>
                             </div>
 
-                        <hr />
+                        <hr>
 
                             <div class="text-center">
                                 <a href="{{ path('meridian_core_demo_default') }}" class="btn btn-danger square-btn-adjust border-radius0"> Išbandyk demo versiją! </a>
