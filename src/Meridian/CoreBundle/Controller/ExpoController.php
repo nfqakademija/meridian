@@ -231,18 +231,7 @@ class ExpoController extends Controller
                 ->select('cc.city')
                 ->distinct()
                 ->getQuery();
-
         $uniqCities = $cities->getResult();
-//        var_dump($uniqCities);
-//        exit;
-
-//        $form = $this->createFormBuilder()
-//            ->add('Miestas', 'choice', array(
-//                'choices' => $uniqCities,
-//                'expanded' => true
-//            ))
-//            ->getForm();
-
         return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $allExpo, 'cities'=>$uniqCities));
     }
 }
