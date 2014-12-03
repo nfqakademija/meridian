@@ -2,20 +2,7 @@
 {% block title %} Admino puslapis {% endblock %}
 
 {% block body %}
-
-    {#<div class="container">#}
-        {#<h2> Sveikas, administratoriau {{ app.user }}</h2>#}
-        {#<ul>#}
-            {#<li><a href="{{ path("admin_new_game") }}">Kurti naujus žaidimus</a></li>#}
-            {#<li><a href="{{ path("admin_show_all_games") }}">Peržiūrėti visus žaidimus</a></li>#}
-            {#<li><a href="{{ path("admin_expo") }}">Peržiūrėti naujas parodas</a></li>#}
-
-        {#</ul>#}
-
-        {#<a href="{{ path("admin_logout") }}">atsijungti</a>#}
-    {#</div>#}
     <h2>Sveikas, administratoriau {{ app.user }}</h2>
-
     <div class="container">
         <div role="tabpanel">
 
@@ -40,5 +27,6 @@
                 $('#tabs').tab();
             });
         </script>
+        <a href="{{ path("admin_logout") }}">atsijungti</a>
     </div>
 {% endblock %}
