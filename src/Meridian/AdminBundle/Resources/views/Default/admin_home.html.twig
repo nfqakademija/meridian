@@ -17,15 +17,16 @@
 {% block body %}
     <h1 class="text-center"> Sveikas, administratoriau {{ app.user }}.</h1>
     <hr>
-
     <div class="text-center">
+    <div class="text-left">
         <ul class="bullet-no">
             <li><a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path("admin_new_game") }}">Kurti naujus žaidimus</a></li>
             <li><a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path("admin_show_all_games") }}">Peržiūrėti visus žaidimus</a></li>
             <li><a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path("admin_expo") }}">Peržiūrėti naujas parodas</a></li>
-            <li><a class="btn btn-danger square-btn-adjust border-radius0" href="{{ path("admin_logout") }}">Atsijungti</a></li>
+
         </ul>
-
-
+    </div>
+    <hr>
+        <div><a class="btn btn-danger square-btn-adjust border-radius0" href="{{ path("admin_logout") }}">Atsijungti</a></div>
     </div>
 {% endblock %}

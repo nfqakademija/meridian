@@ -10,10 +10,10 @@
                 <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
             {% endif %}
             <label for="username">{{ 'resetting.request.username'|trans }} </label>
-            <input type="text" id="username" name="username" required="required" class="form-control"/>
+            <input class="form-control whitespace-bottom" type="text" id="username" name="username" required="required" class="form-control" />
         </div>
         <div>
-            <input type="submit" value="{{ 'resetting.request.submit'|trans }}" class="btn btn-danger square-btn-adjust border-radius0"/>
+            <input class="btn btn-danger square-btn-adjust border-radius0" type="submit" value="{{ 'resetting.request.submit'|trans }}" />
         </div>
     </form>
 </div>
