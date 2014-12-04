@@ -24,9 +24,6 @@
             <li><a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path("admin_show_all_games") }}">Peržiūrėti visus žaidimus</a></li>
             <li><a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path("admin_expo") }}">Peržiūrėti naujas parodas</a></li>
 
-        </ul>
-    </div>
-    <hr>
-        <div><a class="btn btn-danger square-btn-adjust border-radius0" href="{{ path("admin_logout") }}">Atsijungti</a></div>
+        <a href="{{ path("admin_logout") }}">atsijungti</a>
     </div>
 {% endblock %}

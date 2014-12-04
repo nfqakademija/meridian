@@ -47,6 +47,7 @@ def get_info(link):
     name = p_tags[0].text
     address = p_tags[1].text
     city = address.split(',')[-1].strip()
+    print city
     if city in all_cities:
         time = p_tags[2].text.split('Atidarymas')[0]
         get_q = '''SELECT id from Expo WHERE name = "%s" ''' % (name)
