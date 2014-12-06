@@ -32,6 +32,7 @@ class GameService
     protected $userInfo;
     protected $userScores;
     protected $answerFromForm;
+    protected $qQty;
     protected $isOk = false;
 
 
@@ -96,13 +97,15 @@ class GameService
         return $this->userInfo->getLevel();
     }
 
+    /**
+     * @return string
+     */
     public function getGameName()
     {
-     if($this->checkGame($this->getGameId()))
-     {
-         return $this->em->getRepository('MeridianCoreBundle:Game')
-             ->find($this->getGameId())->getName();
-     }
+        if ($this->checkGame($this->getGameId())) {
+            return $this->em->getRepository('MeridianCoreBundle:Game')
+                ->find($this->getGameId())->getName();
+        }
     }
 
     public function getUserGameStatus()
@@ -147,8 +150,9 @@ class GameService
      */
     public function getQuestionForGame(Request $request)
     {
-        if($this->getPositionInGame() != 11 && !$this->checkGame($this->getGameId()+1) || $this->checkQuestions($request)==10)
-        {
+        if ($this->getPositionInGame() != $this->qQty + 1 && !$this->checkGame($this->getGameId() + 1)
+            || $this->getQuestionsQuantity($this->getGameId()) >= 5
+        ) {
             return $this->em->getRepository('MeridianCoreBundle:GameQuestion')
                 ->findOneBy(['gameId' => $this->getGameId(), 'positionInGame' => $this->getPositionInGame()])
                 ->getQuestion()->getQuestion();
@@ -175,8 +179,7 @@ class GameService
      */
     public function createAnswerForm(Request $request)
     {
-        if($this->checkGame($this->getGameId()))
-        {
+        if ($this->checkGame($this->getGameId())) {
             $this->form = $this->formFactory->createBuilder(new DemoType())
                 ->add('Siųsti', 'submit')
                 ->getForm();
@@ -196,7 +199,7 @@ class GameService
      */
     public function emptyForm()
     {
-            return $this->formFactory->createBuilder()->getForm();
+        return $this->formFactory->createBuilder()->getForm();
     }
 
     /**
@@ -251,7 +254,7 @@ class GameService
             ->findOneBy(['id' => $this->getUserId()])
             ->setGame($this->em->getRepository('MeridianCoreBundle:Game')
                 ->findOneBy(['id' => $this->getGameId() + 1]))
-            ->setPositionInGame(1)
+            ->setPositionInGame($this->getFirstQuestionPositionForNextLevel())
             ->setLevel($this->getUserLevel() + 1);
         $this->em->persist($query);
         $this->em->flush();
@@ -267,13 +270,10 @@ class GameService
         $this->setUserScores();
         $this->setPositionInGame();
         $this->isOk = true;
-        if ($this->getPositionInGame() == 11 && $this->checkGame($this->getGameId()+1))
-        {
+        if ($this->getPositionInGame() == $this->qQty + 1 && $this->checkGame($this->getGameId() + 1)
+            && $this->getQuestionsQuantity($this->getGameId() + 1) > 5
+        ) {
             $this->setNextLevelAndResetPosition();
-        }
-        elseif($this->getPositionInGame() == 11 && !$this->checkGame($this->getGameId()+1))
-        {
-            $this->noActiveGame($session);
         }
     }
 
@@ -304,12 +304,9 @@ class GameService
 
     public function checkGame($gameId)
     {
-        if(!$this->em->getRepository('MeridianCoreBundle:Game')->find($gameId))
-        {
-           return false;
-        }
-        else
-        {
+        if (!$this->em->getRepository('MeridianCoreBundle:Game')->find($gameId)) {
+            return false;
+        } else {
             return true;
         }
     }
@@ -323,36 +320,39 @@ class GameService
     }
 
     /**
-     * set next level and position to one then new game is added
-     * @param Request $request
+     * set next level and position to then new game is added and have questions
      * @internal param $session
      */
-    public function returnToGame(Request $request)
+    public function returnToGame()
     {
-        $session = $request->getSession();
-        if ($this->getPositionInGame() == 11 && $this->checkGame($this->getGameId()+1))
-        {
+        if ($this->getPositionInGame() == $this->getQuestionsQuantity($this->getGameId()) + 1
+            && $this->checkGame($this->getGameId() + 1) && $this->getQuestionsQuantity($this->getGameId() + 1) >= 5
+        ) {
             $this->setNextLevelAndResetPosition();
-        }
-        elseif($this->getPositionInGame() == 11 && !$this->checkGame($this->getGameId()+1))
-        {
-            $this->noActiveGame($session);
         }
     }
 
+
     /**
-     * function not ready
-     * @param Request $request
+     * @param $gameId
      * @return int
      */
-    public function checkQuestions(Request $request)
+    public function getQuestionsQuantity($gameId)
     {
-        $q = $this->em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId'=>$this->getGameId()));
+        $q = $this->em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId' => $gameId));
         $qQty = count($q);
-        if($qQty !=10)
-        {
-            $this->noActiveGame($request->getSession());
-        }
+        $this->qQty = $qQty;
         return $qQty;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFirstQuestionPositionForNextLevel()
+    {
+        if ($this->checkGame($this->getGameId() + 1) && $this->getQuestionsQuantity($this->getGameId() + 1) >= 5) {
+            return $this->em->getRepository('MeridianCoreBundle:GameQuestion')->findOneBy(['gameId' => $this->getGameId() + 1],
+                ['positionInGame' => 'ASC'])->getPositionInGame();
+        }
     }
 } 

@@ -99,32 +99,36 @@ class DefaultController extends Controller
     {
         $game = $this->get('meridian_core.game_service');
         $game->getUserInfo($this->getUser());
-        $game->returnToGame($request);
+        $game->returnToGame();
         $form = $game->createAnswerForm($request);
         if ($game->answerIsOk()) {
             return new RedirectResponse('game');
         }
-        if($game->getPositionInGame() == 11 && $game->checkGame($game->getGameId()) || $game->checkQuestions($request)!=10)
-        {
-            return $this->render('MeridianCoreBundle:Default:game.html.twig',
+        if ($game->getPositionInGame() == 1) {
+            return $this->render('MeridianCoreBundle:Default:levelquestion.html.twig',
                 [
-                    'question' => '',
-                    'game' => '',
-                    'answerForm' => $game->emptyForm()->createView(),
-                    'level' => $game->getUserLevel(),
-                    'scores' => $game->getUserScores()
-                ]);
-        }
-        else
-        {
-            return $this->render('MeridianCoreBundle:Default:game.html.twig',
-                [
-                    'question' => 'Klausimas: '.$game->getQuestionForGame($request),
-                    'game' => $game->getGameName(),
+                    'question' => $game->getQuestionForGame($request),
                     'answerForm' => $form->createView(),
-                    'level' => $game->getUserLevel(),
-                    'scores' => $game->getUserScores()
+                    'level' => $game->getUserLevel()
                 ]);
+        } else {
+            if ($game->getPositionInGame() == $game->getQuestionsQuantity($game->getGameId()) + 1 && $game->checkGame($game->getGameId())
+                || $game->getQuestionsQuantity($game->getGameId()) < 5
+            ) {
+                return $this->render('MeridianCoreBundle:Default:noactivegame.html.twig',
+                    [
+                        'level' => $game->getUserLevel(),
+                    ]);
+            } else {
+                return $this->render('MeridianCoreBundle:Default:game.html.twig',
+                    [
+                        'question' => $game->getQuestionForGame($request),
+                        'game' => $game->getGameName(),
+                        'answerForm' => $form->createView(),
+                        'level' => $game->getUserLevel(),
+                        'scores' => $game->getUserScores()
+                    ]);
+            }
         }
     }
 }

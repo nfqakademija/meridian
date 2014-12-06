@@ -73,18 +73,6 @@ class User extends BaseUser
     protected $positionInGame;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="gameStatus", type="boolean", nullable=true, options={"default"=0})
-     */
-    protected $gameStatus;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="objectName", type="string", nullable=true)
-     */
-    protected $objectName;
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     protected $profilePicturePath;
@@ -432,51 +420,5 @@ class User extends BaseUser
     public function getPositionInGame()
     {
         return $this->positionInGame;
-    }
-
-    /**
-     * Set gameStatus
-     *
-     * @param boolean $gameStatus
-     * @return User
-     */
-    public function setGameStatus($gameStatus)
-    {
-        $this->gameStatus = $gameStatus;
-
-        return $this;
-    }
-
-    /**
-     * Get gameStatus
-     *
-     * @return boolean 
-     */
-    public function getGameStatus()
-    {
-        return $this->gameStatus;
-    }
-
-    /**
-     * Set objectName
-     *
-     * @param string $objectName
-     * @return User
-     */
-    public function setObjectName($objectName)
-    {
-        $this->objectName = $objectName;
-
-        return $this;
-    }
-
-    /**
-     * Get objectName
-     *
-     * @return string 
-     */
-    public function getObjectName()
-    {
-        return $this->objectName;
     }
 }
