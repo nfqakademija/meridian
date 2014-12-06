@@ -433,10 +433,19 @@ line-height: 1.428571429;
     margin-right: 0px;
 
 }
+.header-title-style2{
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #4D4D4D;
+    background: #fff;
+    line-height: 220%;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
 .header-background{
     background: #A70303;
-    m argin-top: 7%;
-# ++++++++++++++++++++++++++++++++
+
 }
 .padding0{
     padding: 0px;
@@ -450,7 +459,9 @@ line-height: 1.428571429;
 .margin-bottom0{
     margin-bottom: 0px;
 }
-
+.margin-bottom15{
+    margin-bottom: 15px;
+}
 .header-message{
     color: #fff;
     text-align: center;
@@ -489,11 +500,14 @@ color: #fff;
 }
 .border-radius0{
     border-radius: 0px;
-    border: 1px solid rgba(23, 7, 11, 0.59);
-    box-shadow: 0px 0px 10px #888;
+    border: 1px solid rgba(145, 137, 141, 0.46);
+    box-shadow: 0px 0px 2px #888;
 }
 .panel-background{
     background-color: #4D4D4D;
     color: #fff;
     font-weight: 700;
+}
+.bullet-no{
+    list-style-type: none;
 }
