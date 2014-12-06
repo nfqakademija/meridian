@@ -17,7 +17,12 @@ class DemoType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('answer');
+            ->add('Atsakymas', null, array(
+                'attr' =>
+                    array(
+                        'placeholder' => 'Atsakymą vesti čia..',
+                    )
+            ));
 
     }
     public function getName()
