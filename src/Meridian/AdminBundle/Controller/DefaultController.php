@@ -143,10 +143,18 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $game = $em->getRepository('MeridianCoreBundle:GameQuestion')->findBy(array('gameId' => $game_id));
-        if (count($game) == 0) {
-            $position_in_game = 0;
+        $gameStatus = $em->getRepository('MeridianCoreBundle:Game')->find($game_id)->getStatus();
+        var_dump($gameStatus);
+        if ($gameStatus == true) {
+
+            $firstPosition = 0;
+        } else {
+
+            $firstPosition = 1;
         }
-        else {
+        if (count($game) == 0) {
+            $position_in_game = $firstPosition;
+        } else {
             $position_in_game = end($game)->getPositionInGame();
         }
 
@@ -155,7 +163,7 @@ class DefaultController extends Controller
         $eMQuestion = $this->getDoctrine()->getRepository('MeridianCoreBundle:Question')->find($question_id);
 
         $new = new GameQuestion();
-        $new->setGame($eMGame)->setQuestion($eMQuestion)->setPositionInGame($position_in_game+1);
+        $new->setGame($eMGame)->setQuestion($eMQuestion)->setPositionInGame($position_in_game + 1);
         $em->persist($new);
         $em->flush();
         return $this->redirect($this->generateUrl('admin_show_available_questions', array('id' => $game_id)));
