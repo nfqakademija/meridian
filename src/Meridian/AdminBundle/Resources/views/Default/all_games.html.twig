@@ -12,7 +12,7 @@
                     {{ game.name }} -
                     <a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_show_game', {'id': game.id}) }}">Peržiūrėti žaidimą</a>
                     <a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_edit_game', {'id': game.id}) }}">Redaguoti</a>
-                    <a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_delete_game',{'id': game.id}) }}">Trinti žaidimą</a>
+                    {#<a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_delete_game',{'id': game.id}) }}">Trinti žaidimą</a>#}
                 </li>
             {% endfor %}
         </ul>

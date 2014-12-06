@@ -56,12 +56,19 @@ class Expo
      */
     private $city;
 
+    /**
+     * @var string
+     * @ORM\Column(name="picture", type="string", length=255)
+     */
 
+    private $picture;
     /**
      * Get id
      *
      * @return integer 
      */
+
+
     public function getId()
     {
         return $this->id;
@@ -181,6 +188,27 @@ class Expo
     {
         return $this->city;
     }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     * @return Expo
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string 
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 }
-
-

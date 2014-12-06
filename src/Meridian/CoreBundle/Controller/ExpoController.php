@@ -2,6 +2,7 @@
 
 namespace Meridian\CoreBundle\Controller;
 
+use Meridian\CoreBundle\Service\ExpoService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -233,5 +234,11 @@ class ExpoController extends Controller
                 ->getQuery();
         $uniqCities = $cities->getResult();
         return $this->render('MeridianCoreBundle:Default:expo.html.twig', array('expos' => $allExpo, 'cities'=>$uniqCities));
+    }
+
+    public function updateExpoAction()
+    {
+        $expoService = $this->get('meridian_core.expo')->updateData();
+        return $this->redirect($this->generateUrl('admin_expo'));
     }
 }

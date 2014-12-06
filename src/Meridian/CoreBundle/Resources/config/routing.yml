@@ -9,16 +9,16 @@ meridian_core_form:
     path:     /newquestion
     defaults: { _controller: MeridianCoreBundle:Default:getMainForm }
 meridian_core_questions:
-    path:     /questions
+    path:     /admin/questions
     defaults: { _controller: MeridianCoreBundle:Default:getAllQuestions }
 meridian_core_question_remove:
-    path:     /removequestion/{id}
+    path:     /admin/removequestion/{id}
     defaults: { _controller: MeridianCoreBundle:Default:removeOneQuestion }
 meridian_core_question_edit:
-    path:     /editquestion/{id}
+    path:     /admin/editquestion/{id}
     defaults: { _controller: MeridianCoreBundle:Default:editQuestion }
 meridian_core_answer_edit:
-    path:     /editanswer/{id}
+    path:     /admin/editanswer/{id}
     defaults: { _controller: MeridianCoreBundle:Default:editAnswer }
 meridian_core_demo_default:
     path:     /demo
@@ -36,3 +36,8 @@ meridian_core_game:
 expo:
     path:   /naujienos
     defaults: { _controller: MeridianCoreBundle:Expo:expo }
+
+
+expo_update:
+    path:   /admin/update_expo
+    defaults: { _controller: MeridianCoreBundle:Expo:updateExpo }

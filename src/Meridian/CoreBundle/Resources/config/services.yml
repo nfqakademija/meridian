@@ -22,5 +22,9 @@ services:
         arguments: ["@doctrine.orm.entity_manager", "@service_container"]
 
 
+    meridian_core.expo:
+        class:  Meridian\CoreBundle\Service\ExpoService
+        arguments: ["@doctrine.orm.entity_manager"]
+
 
 
