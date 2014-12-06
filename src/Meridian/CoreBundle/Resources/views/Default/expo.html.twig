@@ -15,16 +15,17 @@
                         {% for expo in expos %}
                             {% if expo.city == city.city %}
                                 <div class="expo-group">
-                                    <p>{{ expo.name }}</p>
-                                    <p>{{ expo.address }}</p>
-                                    <p>{{ expo.time }}</p>
                                     {% if expo.picture != ''%}
-                                        <div class="pav">
-                                            <img src='{{ expo.picture }}' height="240" width="128" style="margin-left: 0px"/>
-                                        </div>
+                                        <img src='{{ expo.picture }}' style="width: 10%; height: 10%; float: left; position: relative;"/>
                                     {% endif %}
+                                    <div class="expo-text">
+                                        <p>{{ expo.name }}</p>
+                                        <p>{{ expo.address }}</p>
+                                        <p>{{ expo.time }}</p>
 
-                                    <a href="{{ expo.link }}">Išsamiau ></a>
+                                        <a href="{{ expo.link }}">Išsamiau ></a>
+                                    </div>
+
                                     <hr>
                                 </div>
                             {% endif %}
