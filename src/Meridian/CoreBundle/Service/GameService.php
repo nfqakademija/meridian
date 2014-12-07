@@ -212,7 +212,7 @@ class GameService
     {
         $a1 = strtolower($answerFromForm);
         $a2 = strtolower($answerFromDb);
-        $distance = $this->getDistance($answerFromForm, $answerFromDb);
+        $distance = $this->getDistance($a1, $a2);
         if ($a1 == $a2) {
             $this->setCorrectAnswerValues($request->getSession($request));
         } else {
