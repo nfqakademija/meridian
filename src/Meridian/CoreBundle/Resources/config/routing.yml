@@ -6,7 +6,7 @@ meridian_core_homepage:
     path:     /hello/{name}
     defaults: { _controller: MeridianCoreBundle:Default:index }
 meridian_core_form:
-    path:     /newquestion
+    path:     /admin/newquestion
     defaults: { _controller: MeridianCoreBundle:Default:getMainForm }
 meridian_core_questions:
     path:     /admin/questions

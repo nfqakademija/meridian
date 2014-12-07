@@ -53,7 +53,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="level", type="integer", nullable=true, options={"default"=1})
+     * @ORM\Column(name="level", type="integer", nullable=true, options={"default"=0})
      */
     protected $level;
 
@@ -68,7 +68,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="positionInGame", type="integer", nullable=true, options={"default"=1})
+     * @ORM\Column(name="positionInGame", type="integer", nullable=true, options={"default"=2})
      */
     protected $positionInGame;
 
