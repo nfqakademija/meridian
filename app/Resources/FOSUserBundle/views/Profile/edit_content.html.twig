@@ -6,8 +6,6 @@
         </div>
         <div class="panel-body">
             <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
-
-                {#{{ form_widget(form) }}#}
                 {{ form_label(form.username) }}
                 {{ form_errors(form) }}
                 {{ form_widget(form.username, {'attr': {'class': 'form-control whitespace-bottom', 'placeholder': "Vartotojo vardas" }} ) }}
