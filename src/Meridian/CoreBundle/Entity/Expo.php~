@@ -188,6 +188,27 @@ class Expo
     {
         return $this->city;
     }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     * @return Expo
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string 
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 }
-
-
