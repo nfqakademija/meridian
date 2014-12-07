@@ -285,21 +285,16 @@ INSERT INTO `Question` (`id`, `question`, `image`, `description`, `answerId`) VA
 --
 -- Constraints for table `fos_user`
 --
-ALTER TABLE `fos_user`
-  ADD CONSTRAINT `FK_957A6479EC55B7A4` FOREIGN KEY (`gameId`) REFERENCES `Game` (`id`);
+
 
 --
 -- Constraints for table `GameQuestion`
 --
-ALTER TABLE `GameQuestion`
-  ADD CONSTRAINT `FK_B63A6EB24B476EBA` FOREIGN KEY (`questionId`) REFERENCES `Question` (`id`),
-  ADD CONSTRAINT `FK_B63A6EB2EC55B7A4` FOREIGN KEY (`gameId`) REFERENCES `Game` (`id`);
+
 
 --
 -- Constraints for table `Question`
 --
-ALTER TABLE `Question`
-  ADD CONSTRAINT `FK_4F812B185447E146` FOREIGN KEY (`answerId`) REFERENCES `Answer` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
