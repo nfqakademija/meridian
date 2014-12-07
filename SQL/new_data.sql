@@ -15,9 +15,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Current Database: `meridian`
---
+
 --
 -- Table structure for table `Answer`
 --
@@ -205,7 +203,7 @@ CREATE TABLE `fos_user` (
 
 LOCK TABLES `fos_user` WRITE;
 /*!40000 ALTER TABLE `fos_user` DISABLE KEYS */;
-INSERT INTO `fos_user` VALUES (1,'darius','darius','aaaaa@yahoo.com','aaaaa@yahoo.com',1,'foc35caco2048o0c00gg8w00c04o4gk','kOVFoLVfE0qjf8ZwXGnZ+4oBhgc80E1urkpE2AFMQA9mtVfT9i9g/G7lu0dNMB9AjRlafSskLYTUrz64f/By7Q==','2014-12-07 21:30:38',0,0,NULL,'BW-DADe5Z2bkwx3Q7GB6-u15rxY0qeQOtGmeb5kJJlI',NULL,'a:1:{i:0;s:10:\"ROLE_ADMIN\";}',0,NULL,'2014-12-07 21:30:38',1,1,NULL,'fc4ab52983a92f47b64a5f8d38213aab.jpeg',3),(2,'aaa','aaa','aaa@yahoo.com','aaa@yahoo.com',1,'plsbz4qvhs040cgk84g88o8088wog08','+b5gyPpY6pljTZxUyOT/del84bg/xcTlHW+UISYD6NGbzz/U09vVMAM40i3f0hIC7PMOd3Au5Tb7wGgtxqS+Sg==','2014-11-21 23:46:41',0,0,NULL,'_7IgCkTSrsOIKg1oSICa26-FMqqJXpyVdVtAUwYt1BQ',NULL,'a:0:{}',0,NULL,'2014-11-21 23:46:41',18,3,2,NULL,7),(3,'bbb','bbb','bbb@yahoo.com','bbb@yahoo.com',1,'j7fbom41kls8s4w0k04kog4wscw4wg8','rCUXDc5oZ7oK3q3l3lfVbz2j+MvChN9mRxkwP5gNiDxCb4bMEeaYSUGosNPgiCIFWZd5KRLggkW2+oiN65Wwww==','2014-12-06 16:29:06',0,0,NULL,'KI_GrQYo1stZhgbG0d3PFU4qZgUbvT20fe8UsM2ctwE',NULL,'a:0:{}',0,NULL,'2014-12-06 16:29:06',110,1,2,'36dc7636b00c3ca19ca2449ada500fb3.jpeg',2),(4,'ccc','ccc','ccc@yahoo.com','ccc@yahoo.com',1,'owc5r4arajkg80gccgk8o48ocos4sc0','nT0qE2w42muUxLjsqeXTeiflTS+//7m1bsfx/MFtyXvGUi4vDy3L//V6izPWyYFr4hZkwaY5Qxs5vpfXFsn5CA==','2014-11-22 13:52:18',0,0,NULL,'ThKdr6ECoP6pKiTd_vBUATPrbax1sVgoU0fh3s_3OjU',NULL,'a:0:{}',0,NULL,'2014-11-22 13:52:18',4,2,2,'bce567879fa64c86e7e07cf8f4e606d3.png',1),(5,'ddd','ddd','ddd@yahoo.com','ddd@yahoo.com',1,'cxjephoo50gk4os8ocsgsoc8s0w8kws','5xLePcVb7FLN2NB4Y8po4l0Ppo1JN1rTbgx6Xh3gn07XjpHn4A3LsAEHIWlnScnRvcrLTuNp4QH/cea/jpZH2Q==',NULL,0,0,NULL,'e9r_l9n6qdOiwADe14phV-6x862ozCzWw9FNv1v4tWQ',NULL,'a:0:{}',0,NULL,'2014-11-16 14:32:16',5,1,2,NULL,1);
+INSERT INTO `fos_user` VALUES (1,'darius','darius','aaaaa@yahoo.com','aaaaa@yahoo.com',1,'foc35caco2048o0c00gg8w00c04o4gk','kOVFoLVfE0qjf8ZwXGnZ+4oBhgc80E1urkpE2AFMQA9mtVfT9i9g/G7lu0dNMB9AjRlafSskLYTUrz64f/By7Q==','2014-12-07 21:30:38',0,0,NULL,'BW-DADe5Z2bkwx3Q7GB6-u15rxY0qeQOtGmeb5kJJlI',NULL,'a:1:{i:0;s:10:\"ROLE_ADMIN\";}',0,NULL,'2014-12-07 21:30:38',1,1,2,'fc4ab52983a92f47b64a5f8d38213aab.jpeg',3),(2,'aaa','aaa','aaa@yahoo.com','aaa@yahoo.com',1,'plsbz4qvhs040cgk84g88o8088wog08','+b5gyPpY6pljTZxUyOT/del84bg/xcTlHW+UISYD6NGbzz/U09vVMAM40i3f0hIC7PMOd3Au5Tb7wGgtxqS+Sg==','2014-11-21 23:46:41',0,0,NULL,'_7IgCkTSrsOIKg1oSICa26-FMqqJXpyVdVtAUwYt1BQ',NULL,'a:0:{}',0,NULL,'2014-11-21 23:46:41',18,3,2,NULL,7),(3,'bbb','bbb','bbb@yahoo.com','bbb@yahoo.com',1,'j7fbom41kls8s4w0k04kog4wscw4wg8','rCUXDc5oZ7oK3q3l3lfVbz2j+MvChN9mRxkwP5gNiDxCb4bMEeaYSUGosNPgiCIFWZd5KRLggkW2+oiN65Wwww==','2014-12-06 16:29:06',0,0,NULL,'KI_GrQYo1stZhgbG0d3PFU4qZgUbvT20fe8UsM2ctwE',NULL,'a:0:{}',0,NULL,'2014-12-06 16:29:06',110,1,2,'36dc7636b00c3ca19ca2449ada500fb3.jpeg',2),(4,'ccc','ccc','ccc@yahoo.com','ccc@yahoo.com',1,'owc5r4arajkg80gccgk8o48ocos4sc0','nT0qE2w42muUxLjsqeXTeiflTS+//7m1bsfx/MFtyXvGUi4vDy3L//V6izPWyYFr4hZkwaY5Qxs5vpfXFsn5CA==','2014-11-22 13:52:18',0,0,NULL,'ThKdr6ECoP6pKiTd_vBUATPrbax1sVgoU0fh3s_3OjU',NULL,'a:0:{}',0,NULL,'2014-11-22 13:52:18',4,2,2,'bce567879fa64c86e7e07cf8f4e606d3.png',1),(5,'ddd','ddd','ddd@yahoo.com','ddd@yahoo.com',1,'cxjephoo50gk4os8ocsgsoc8s0w8kws','5xLePcVb7FLN2NB4Y8po4l0Ppo1JN1rTbgx6Xh3gn07XjpHn4A3LsAEHIWlnScnRvcrLTuNp4QH/cea/jpZH2Q==',NULL,0,0,NULL,'e9r_l9n6qdOiwADe14phV-6x862ozCzWw9FNv1v4tWQ',NULL,'a:0:{}',0,NULL,'2014-11-16 14:32:16',5,1,2,NULL,1);
 /*!40000 ALTER TABLE `fos_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -218,4 +216,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-12-07 22:01:54
+-- Dump completed on 2014-12-07 22:15:20
