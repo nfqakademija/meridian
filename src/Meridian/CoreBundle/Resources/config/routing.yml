@@ -25,7 +25,7 @@ meridian_core_demo_default:
     defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
 meridian_core_demo_question:
       path:     /demo/{gameId}/{questionId}
-      defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
+      defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame, gameId:1, questionId:1 }
 
 
 meridian_core_game:
