@@ -7,6 +7,10 @@
                         <strong class=""> Įveskite prisijungimo duomenis </strong>
                     </div>
 
+    {% if error is defined and error %}
+        <div class="text-center alert-danger-alt padding20"> {{ error }}</div>
+    {% endif %}
+
                     <div class="panel-body">
                         <form role="form" action="{{ path("fos_user_security_check") }}" method="post">
                             <input type="hidden" name="_csrf_token" value="{{ fos_csrf_provider.generateCsrfToken('authenticate') }}" />
