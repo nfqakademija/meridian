@@ -1,23 +1,26 @@
 {% extends '::admin.html.twig' %}
 
 {% block body %}
-
     <h1 class="text-center">Žaidimų sąrašas</h1>
-        <hr>
-    <div class=" text-center">
+    <hr>
+    <div class="container">
+        <div class=" text-center">
         <div class="text-left">
-        <ul class="bullet-no">
-            {% for game in games %}
-                <li>
-                    {{ game.name }} -
-                    <a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_show_game', {'id': game.id}) }}">Peržiūrėti žaidimą</a>
-                    <a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_edit_game', {'id': game.id}) }}">Redaguoti</a>
-                    {#<a class="btn btn-success square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_delete_game',{'id': game.id}) }}">Trinti žaidimą</a>#}
-                </li>
-            {% endfor %}
-        </ul>
+            <ul>
+                {% for game in games %}
+                    <li>
+                        {{ game.name }} -
+                        <a class="whitespace-bottom" href="{{ path('admin_show_game', {'id': game.id}) }}">Peržiūrėti žaidimą.</a>
+                        <a class="whitespace-bottom" href="{{ path('admin_edit_game', {'id': game.id}) }}">Redaguoti žaidimą.</a>
+                        <a class="whitespace-bottom" href="{{ path('admin_delete_game',{'id': game.id}) }}">Trinti žaidimą.</a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-        <hr>
-        <a class="btn btn-danger square-btn-adjust border-radius0 text-center" href="{{ path('admin_home_page') }}">Grįžti atgal</a>
+        </div>
+    </div>
+    <hr>
+    <div class="text-center">
+        <a class="btn btn-danger square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_home_page') }}">Grįžti atgal</a>
     </div>
 {% endblock %}

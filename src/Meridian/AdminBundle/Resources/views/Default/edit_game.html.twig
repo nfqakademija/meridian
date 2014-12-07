@@ -1,9 +1,39 @@
 {% extends '::admin.html.twig' %}
 
 {% block body %}
-<div class="container">
-    <h1>Redaguoti žaidimą</h1>
-    {{ form(form) }}
-</div>
-
+    <h1 class="text-center">Redaguoti žaidimą</h1>
+    <hr>
+    <div class="container">
+    <div class="row ">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+    <div class="panel panel-default border-radius0">
+        <div class="panel-heading text-center panel-background">
+            <strong> Redaguokite duomenis </strong>
+        </div>
+        <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"
+              class="fos_user_registration_register panel panel-default border-radius0">
+        {{ form(form) }}
+            <form name="meridian_corebundle_game" method="post" action="/admin/update/2">
+                <input type="hidden" name="_method" value="PUT" />
+                <div id="meridian_corebundle_game" class="padding20">
+                    <div><label for="meridian_corebundle_game_name" class="required"> Name </label>
+                        <input class="form-control whitespace-bottom" type="text" id="meridian_corebundle_game_name" name="meridian_corebundle_game[name]" required="required" maxlength="255" value="Second Game" /></div>
+                    <div>
+                        <label for="meridian_corebundle_game_image">Image</label>
+                        <input class="form-control whitespace-bottom" type="text" id="meridian_corebundle_game_image" name="meridian_corebundle_game[image]" maxlength="255" /></div>
+                    <div>
+                        <label for="meridian_corebundle_game_description">Description</label>
+                        <input class="form-control whitespace-bottom" type="text" id="meridian_corebundle_game_description" name="meridian_corebundle_game[description]" maxlength="255" /></div>
+                    <div class="text-center">
+                        <label for="meridian_corebundle_game_status" class="required">Status</label>
+                        <input type="checkbox" id="meridian_corebundle_game_status" name="meridian_corebundle_game[status]" required="required" maxlength="20" value="1" /></div>
+                    <div class="text-center">
+                        <button class="btn btn-danger square-btn-adjust border-radius0 whitespace-bottom" type="submit" id="meridian_corebundle_game_submit" name="meridian_corebundle_game[submit]">Redaguoti žaidimą</button></div>
+                        <input type="hidden" id="meridian_corebundle_game__token" name="meridian_corebundle_game[_token]" value="I5f_cTX4j5lSl3_yNSW3BLCD2pX8CzeBCrPf8brW_zA" />
+                </div>
+            </form>
+        </form>
+       {# {{ form_widget(form.username, {'attr': {'class': 'form-control whitespace-bottom', 'placeholder': "Vartotojo vardas" }} ) }} #}
+        </form>
+    </div>
 {% endblock %}

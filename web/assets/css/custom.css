@@ -404,10 +404,8 @@ line-height: 1.428571429;
 }
 .scores-image{
     padding: 3px;
-    b order: 1px solid #31152b;
     background-color:#C90000;
     display: block;
-    b order-radius: 30px;
     box-shadow: 0px 0px 2px #45141f;
 }
 .scores-image-default{
@@ -510,4 +508,15 @@ color: #fff;
 }
 .bullet-no{
     list-style-type: none;
+}
+.text-white{
+    color: #fff;
+
+}
+.text-white:hover a{
+    color: #fff;
+    text-decoration: none;
+}
+.color-white{
+    color: #fff;
 }

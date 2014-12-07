@@ -1,30 +1,36 @@
 {% extends '::admin.html.twig' %}
 
 {% block body %}
-    <h2>Žaidimo "{{ game.name }}"</h2>
-    <h3>Galimi klausimai</h3>
-    <table border="1" style="width:90%">
-        <tr>
-            <th>ID</th>
-            <th>Klausimas</th>
-            <th>Aprašymas</th>
-            <th>Nuotrauka</th>
-            <th>Atsakymo ID</th>
-            <th>Redaguoti</th>
-            <th>Pridėti</th>
-        </tr>
-        {% for item in questions %}
+    <div class="text-center">
+        <h1>Žaidimo "{{ game.name }}"</h1><h3>Galimi klausimai</h3>
+    </div>
+    <hr>
+    <div class="container">
+        <table class="table table-bordered">
             <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.question }}</td>
-                <td>{{ item.description }}</td>
-                <td>{{ item.image }}</td>
-                <td><a href="{{ path('meridian_core_answer_edit',{'id': item.answerId}) }}">{{ item.answerId }}</a></td>
-                <td><a href="{{ path('meridian_core_question_edit',{'id': item.id}) }}">Edit</a></td>
-                <td><a href="{{ path('admin_add_question_to_the_game',{'game_id': game.id, 'question_id': item.id}) }}">Add</a></td>
+                <th>ID</th>
+                <th>Klausimas</th>
+                <th>Aprašymas</th>
+                <th>Nuotrauka</th>
+                <th>Atsakymo ID</th>
+                <th>Redaguoti</th>
+                <th>Pridėti</th>
             </tr>
-        {% endfor %}
-
-    </table>
-    <a href="{{ path('admin_home_page') }}">Grįžti į pagrindinį</a>
+            {% for item in questions %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.question }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.image }}</td>
+                    <td><a href="{{ path('meridian_core_answer_edit',{'id': item.answerId}) }}">{{ item.answerId }}</a></td>
+                    <td><a href="{{ path('meridian_core_question_edit',{'id': item.id}) }}">Edit</a></td>
+                    <td><a href="{{ path('admin_add_question_to_the_game',{'game_id': game.id, 'question_id': item.id}) }}">Add</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <hr>
+    <div class="text-center">
+        <a class="btn btn-danger square-btn-adjust border-radius0 whitespace-bottom" href="{{ path('admin_home_page') }}">Grįžti į pagrindinį</a>
+    </div>
 {% endblock %}
