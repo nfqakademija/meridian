@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 07, 2014 at 07:12 PM
+-- Generation Time: Dec 07, 2014 at 09:38 PM
 -- Server version: 5.5.40-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.5
 
@@ -42,25 +42,6 @@ INSERT INTO `Answer` (`id`, `answer`, `description`, `image`) VALUES
 (1, '4', 'no', 'no'),
 (2, 'Kaunas', 'no', 'no'),
 (3, 'TAIP', 'no', 'no'),
-(4, 'TESTAS', 'TEST', 'TSTSD'),
-(5, 't1', 't', 't'),
-(6, 't1', 't', 't'),
-(7, 't1', 't', 't'),
-(8, 't1', 't', 't'),
-(9, 't1', 't', 't'),
-(10, 't1', 't', 't'),
-(11, 't1', 't', 't'),
-(12, 't1', 't', 't'),
-(13, 't1', 't', 't'),
-(14, 't1', 't', 't'),
-(15, 't1', 't', 't'),
-(16, 't1', 't', 't'),
-(17, 't1', 't', 't'),
-(18, 't1', 't', 't'),
-(19, 't1', 't', 't'),
-(20, 't1', 't', 't'),
-(21, 'a2', 'a2', 'a2'),
-(22, 't3', 't3', 't3'),
 (23, 'Ryšių istorijos muziejus', '.', '.'),
 (24, '12', '.', '.'),
 (25, 'Varveklis', '.', '.'),
@@ -176,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `fos_user` (
 --
 
 INSERT INTO `fos_user` (`id`, `username`, `username_canonical`, `email`, `email_canonical`, `enabled`, `salt`, `password`, `last_login`, `locked`, `expired`, `expires_at`, `confirmation_token`, `password_requested_at`, `roles`, `credentials_expired`, `credentials_expire_at`, `lastEdited`, `scores`, `level`, `gameId`, `profilePicturePath`, `positionInGame`) VALUES
-(1, 'darius', 'darius', 'aaaaa@yahoo.com', 'aaaaa@yahoo.com', 1, 'foc35caco2048o0c00gg8w00c04o4gk', 'kOVFoLVfE0qjf8ZwXGnZ+4oBhgc80E1urkpE2AFMQA9mtVfT9i9g/G7lu0dNMB9AjRlafSskLYTUrz64f/By7Q==', '2014-12-07 18:54:11', 0, 0, NULL, 'BW-DADe5Z2bkwx3Q7GB6-u15rxY0qeQOtGmeb5kJJlI', NULL, 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 0, NULL, '2014-12-07 19:06:43', 1, 1, 2, 'fc4ab52983a92f47b64a5f8d38213aab.jpeg', 3),
+(1, 'darius', 'darius', 'aaaaa@yahoo.com', 'aaaaa@yahoo.com', 1, 'foc35caco2048o0c00gg8w00c04o4gk', 'kOVFoLVfE0qjf8ZwXGnZ+4oBhgc80E1urkpE2AFMQA9mtVfT9i9g/G7lu0dNMB9AjRlafSskLYTUrz64f/By7Q==', '2014-12-07 21:30:38', 0, 0, NULL, 'BW-DADe5Z2bkwx3Q7GB6-u15rxY0qeQOtGmeb5kJJlI', NULL, 'a:1:{i:0;s:10:"ROLE_ADMIN";}', 0, NULL, '2014-12-07 21:30:38', 1, 1, 2, 'fc4ab52983a92f47b64a5f8d38213aab.jpeg', 3),
 (2, 'aaa', 'aaa', 'aaa@yahoo.com', 'aaa@yahoo.com', 1, 'plsbz4qvhs040cgk84g88o8088wog08', '+b5gyPpY6pljTZxUyOT/del84bg/xcTlHW+UISYD6NGbzz/U09vVMAM40i3f0hIC7PMOd3Au5Tb7wGgtxqS+Sg==', '2014-11-21 23:46:41', 0, 0, NULL, '_7IgCkTSrsOIKg1oSICa26-FMqqJXpyVdVtAUwYt1BQ', NULL, 'a:0:{}', 0, NULL, '2014-11-21 23:46:41', 18, 3, 2, NULL, 7),
 (3, 'bbb', 'bbb', 'bbb@yahoo.com', 'bbb@yahoo.com', 1, 'j7fbom41kls8s4w0k04kog4wscw4wg8', 'rCUXDc5oZ7oK3q3l3lfVbz2j+MvChN9mRxkwP5gNiDxCb4bMEeaYSUGosNPgiCIFWZd5KRLggkW2+oiN65Wwww==', '2014-12-06 16:29:06', 0, 0, NULL, 'KI_GrQYo1stZhgbG0d3PFU4qZgUbvT20fe8UsM2ctwE', NULL, 'a:0:{}', 0, NULL, '2014-12-06 16:29:06', 110, 1, 2, '36dc7636b00c3ca19ca2449ada500fb3.jpeg', 2),
 (4, 'ccc', 'ccc', 'ccc@yahoo.com', 'ccc@yahoo.com', 1, 'owc5r4arajkg80gccgk8o48ocos4sc0', 'nT0qE2w42muUxLjsqeXTeiflTS+//7m1bsfx/MFtyXvGUi4vDy3L//V6izPWyYFr4hZkwaY5Qxs5vpfXFsn5CA==', '2014-11-22 13:52:18', 0, 0, NULL, 'ThKdr6ECoP6pKiTd_vBUATPrbax1sVgoU0fh3s_3OjU', NULL, 'a:0:{}', 0, NULL, '2014-11-22 13:52:18', 4, 2, 2, 'bce567879fa64c86e7e07cf8f4e606d3.png', 1),
