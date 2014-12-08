@@ -108,16 +108,6 @@ class GameService
         }
     }
 
-    public function getUserGameStatus()
-    {
-        return $this->userInfo->getGameStatus();
-    }
-
-    public function getUserGameObjectName()
-    {
-        return $this->userInfo->getObjectName();
-    }
-
     /**
      * false - open questions in web site
      * true - questions in museum
@@ -191,15 +181,6 @@ class GameService
             }
             return $this->form;
         }
-    }
-
-    /**
-     * empty form
-     * @return \Symfony\Component\Form\Form
-     */
-    public function emptyForm()
-    {
-        return $this->formFactory->createBuilder()->getForm();
     }
 
     /**
