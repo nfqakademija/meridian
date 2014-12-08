@@ -23,7 +23,11 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="{{ path('welcome_page') }}" class="navbar-brand">Meridian</a>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href="{{ path('welcome_page') }}" class="navbar-brand">Meridian</a>
+            {% else %}
+                <a href="{{ path("meridian_core_demo_question") }}" class="navbar-brand">Meridian</a>
+            {% endif %}
         </div>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             {{ render(controller("MeridianCoreBundle:Proxy:getScores")) }}
@@ -62,6 +66,9 @@
                         <img src="{{ asset('images/find_user.png') }}" alt="image" class="user-image img-responsive size128">
                         <li>
                             <a href="{{ path("about") }}"> Apie projektą </a>
+                        </li>
+                        <li>
+                            <a href="{{ path("meridian_core_demo_question") }}"> Demo žaidimas </a>
                         </li>
                     {% endif %}
             </ul>
