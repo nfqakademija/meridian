@@ -33,6 +33,7 @@ class ScoresService
         $lower = $this->em->getRepository('MeridianUserBundle:User')->createQueryBuilder('b')
             ->select('b')
             ->where('b.scores < :user_score')
+            ->orderBy('b.scores', 'DESC')
             ->setParameter('user_score', $userScore)
             ->setMaxResults(2)
             ->getQuery()
@@ -43,9 +44,10 @@ class ScoresService
             ->where('b.scores > :user_score')
             ->setParameter('user_score', $userScore)
             ->setMaxResults(2)
+            ->orderBy('b.scores', 'ASC')
             ->getQuery()
             ->getResult();
-        $scores = array_merge($lower, [$user], $bigger);
+        $scores = array_merge(array_reverse($lower), [$user], $bigger);
         return $scores;
     }
 }
