@@ -1,4 +1,6 @@
 {% extends "::base.html.twig" %}
+
+
 {% block body %}
 
 {# Login form #}
@@ -8,7 +10,7 @@
                     </div>
 
     {% if error is defined and error %}
-        <div class="text-center alert-danger-alt padding20"> {{ error }}</div>
+        <div class="text-center alert-danger-alt padding20"> {{ error|trans }}</div>
     {% endif %}
 
                     <div class="panel-body">
