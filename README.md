@@ -1,3 +1,6 @@
+[![Deployment status from dploy.io](https://meridian.dploy.io/badge/77558059890140/16077.png)](http://dploy.io)
+
+
 Symfony Standard Edition
 ========================
 

@@ -6,7 +6,7 @@ meridian_core_homepage:
     path:     /hello/{name}
     defaults: { _controller: MeridianCoreBundle:Default:index }
 meridian_core_form:
-    path:     /newquestion
+    path:     /admin/newquestion
     defaults: { _controller: MeridianCoreBundle:Default:getMainForm }
 meridian_core_questions:
     path:     /admin/questions
@@ -20,12 +20,12 @@ meridian_core_question_edit:
 meridian_core_answer_edit:
     path:     /admin/editanswer/{id}
     defaults: { _controller: MeridianCoreBundle:Default:editAnswer }
-meridian_core_demo_default:
-    path:     /demo
-    defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
+#meridian_core_demo_default:
+#    path:     /demo
+#    defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
 meridian_core_demo_question:
       path:     /demo/{gameId}/{questionId}
-      defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame }
+      defaults: { _controller: MeridianCoreBundle:Demo:getDemoGame, gameId:1, questionId:1 }
 
 
 meridian_core_game:

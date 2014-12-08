@@ -16,6 +16,13 @@ class DemoController extends Controller
         ));
     }
 
+
+    /**
+     * @param string $gameId
+     * @param string $questionId
+     * @param Request $request
+     * @return RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function getDemoGameAction($gameId = '1', $questionId = '1', Request $request)
     {
         /** @var DemoService $demoService */

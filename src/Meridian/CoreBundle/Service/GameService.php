@@ -210,9 +210,9 @@ class GameService
      */
     public function checkAnswerInGame($answerFromForm, $answerFromDb, Request $request)
     {
-        $a1 = strtolower($answerFromForm);
-        $a2 = strtolower($answerFromDb);
-        $distance = $this->getDistance($answerFromForm, $answerFromDb);
+        $a1 = mb_strtolower($answerFromForm, 'UTF-8');
+        $a2 = mb_strtolower($answerFromDb, 'UTF-8');
+        $distance = $this->getDistance($a1, $a2);
         if ($a1 == $a2) {
             $this->setCorrectAnswerValues($request->getSession($request));
         } else {
