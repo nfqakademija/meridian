@@ -11,7 +11,16 @@
     <h1>Sveikas atvykęs į {{ game }}!!!</h1>
     <h2>Klausimas</h2>
     <h2 class="question"> {{ question }} </h2>
-    {{ form(answerForm) }}
+    {# {{ form(answerForm) }}#}
 
+    <form name="demo"  {{ form_enctype(answerForm) }} method="POST" action="">
+        {{ form_label(answerForm.Atsakymas, '') }}
+        {{ form_errors(answerForm) }}
+        {{ form_widget(answerForm.Atsakymas, {'attr': {'class': 'form-control whitespace-bottom width300', 'placeholder': "" }} ) }}
+        {{ form_widget(answerForm.Siųsti, {'attr': {'class': 'btn btn-danger square-btn-adjust' }} ) }}
+
+        {{ form_rest(answerForm) }}
+    {{ form_end(answerForm) }}
+    </form>
 
 {% endblock %}
