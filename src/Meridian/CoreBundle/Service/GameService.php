@@ -108,16 +108,6 @@ class GameService
         }
     }
 
-    public function getUserGameStatus()
-    {
-        return $this->userInfo->getGameStatus();
-    }
-
-    public function getUserGameObjectName()
-    {
-        return $this->userInfo->getObjectName();
-    }
-
     /**
      * false - open questions in web site
      * true - questions in museum
@@ -184,22 +174,13 @@ class GameService
                 ->add('Siųsti', 'submit')
                 ->getForm();
             $this->answerFromForm = $this->form->handleRequest($request)->getData();
-            if ($this->form->isValid()) {
+            if ($this->form->isValid() && $this->form->isSubmitted()) {
                 $this->checkAnswerInGame(implode($this->answerFromForm),
                     $this->getAnswerForQuestion($this->getGameId(), $this->getPositionInGame()),
                     $request);
             }
             return $this->form;
         }
-    }
-
-    /**
-     * empty form
-     * @return \Symfony\Component\Form\Form
-     */
-    public function emptyForm()
-    {
-        return $this->formFactory->createBuilder()->getForm();
     }
 
     /**
@@ -210,8 +191,8 @@ class GameService
      */
     public function checkAnswerInGame($answerFromForm, $answerFromDb, Request $request)
     {
-        $a1 = mb_strtolower($answerFromForm, 'UTF-8');
-        $a2 = mb_strtolower($answerFromDb, 'UTF-8');
+        $a1 = mb_strtolower($answerFromForm);
+        $a2 = mb_strtolower($answerFromDb);
         $distance = $this->getDistance($a1, $a2);
         if ($a1 == $a2) {
             $this->setCorrectAnswerValues($request->getSession($request));
@@ -270,9 +251,10 @@ class GameService
         $this->setUserScores();
         $this->setPositionInGame();
         $this->isOk = true;
-        if ($this->getPositionInGame() == $this->qQty + 1 && $this->checkGame($this->getGameId() + 1)
-            && $this->getQuestionsQuantity($this->getGameId() + 1) > 5
+        if ($this->getPositionInGame() == $this->getQuestionsQuantity($this->getGameId()) + 1 && $this->checkGame($this->getGameId() + 1)
+            && $this->getQuestionsQuantity($this->getGameId() + 1) >= 5
         ) {
+            var_dump("veikiu");
             $this->setNextLevelAndResetPosition();
         }
     }

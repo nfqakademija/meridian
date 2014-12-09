@@ -46,16 +46,16 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="scores", type="integer", nullable=true , options={"default"=0})
+     * @ORM\Column(name="scores", type="integer", nullable=true, options={"default"=0})
      */
-    protected $scores;
+    protected $scores = 0;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="level", type="integer", nullable=true, options={"default"=0})
+     * @ORM\Column(name="level", type="integer",nullable=true, options={"default"=0})
      */
-    protected $level;
+    protected $level = 1;
 
     /**
      * @var string
@@ -70,7 +70,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="positionInGame", type="integer", nullable=true, options={"default"=2})
      */
-    protected $positionInGame;
+    protected $positionInGame = 2;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)

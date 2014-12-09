@@ -2,6 +2,8 @@
 
 namespace Meridian\UserBundle\Controller;
 
+
+use Meridian\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\ExpressionLanguage\Token;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +15,16 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $userId = $user->getId();
+        $userGameId = $user->getGameId();
+        if ($userGameId == null) {
+            $em = $this->getDoctrine()->getManager();
+            $gId = $this->getDoctrine()->getRepository('MeridianCoreBundle:Game')->find(2);
+            $user = $em->getRepository('MeridianUserBundle:User')->find($userId);
+            $user->setGame($gId);
+            $em->flush();
+        }
         return $this->render('MeridianUserBundle:Default:welcome.html.twig');
     }
 

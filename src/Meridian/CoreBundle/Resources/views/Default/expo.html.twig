@@ -11,7 +11,7 @@
             <div id="my-tab-content" class="tab-content">
                 {% for city in cities %}
                     <div class="tab-pane active" id="{{ city.city }}">
-                        <h1>{{ city.city }}</h1>
+                        <h2>{{ city.city }} </h2>
                         {% for expo in expos %}
                             {% if expo.city == city.city %}
                                 <div class="expo-group">
@@ -19,7 +19,10 @@
                                         <img src='{{ expo.picture }}' style="width: 10%; height: 10%; float: left; position: relative;"/>
                                     {% endif %}
                                     <div class="expo-text">
-                                        <p>{{ expo.name }}</p>
+                                        <div class="expo-name" style="font-weight: bold;">
+                                            <p>{{ expo.name }}</p>
+                                        </div>
+
                                         <p>{{ expo.address }}</p>
                                         <p>{{ expo.time }}</p>
 
