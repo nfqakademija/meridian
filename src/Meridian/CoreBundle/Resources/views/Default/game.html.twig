@@ -1,7 +1,7 @@
 {% extends "::userbase.html.twig" %}
 {% block body %}
   <h1>Tu pasiekei {{ level }} lygį ir turi {{ scores }} taškus.</h1>
-  <h1> {{ game }}</h1>
-  <h1>{{ question }}</h1>
+  <h2> „{{ game }}”</h2>
+  <h2 class="question">{{ question }}</h2>
     {{ form(answerForm) }}
 {% endblock %}
