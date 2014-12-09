@@ -520,3 +520,21 @@ color: #fff;
 .color-white{
     color: #fff;
 }
+.padding5{
+    padding: 5px;
+}
+.padding-left7{
+    padding-left: 7px;
+}
+.img-style{
+    width: 10%;
+    height: 10%;
+    float: left;
+    position: relative;
+    padding-right: 10px;
+    max-height: 200px;
+    overflow: hidden;
+}
+.text-bold{
+    font-weight: bold;
+}
